@@ -2,6 +2,8 @@
 
 ![Image d'un batiment écologique](https://github.com/mrvolive/sae104/blob/main/other/HWrmq.png?raw=true)
 
+<img src="https://github.com/mrvolive/sae104/blob/main/other/HWrmq.png?raw=true" alt="Image d'un batiment écologique" width="200"/>
+
 ## Compétence ciblée :
 
 Compétence 4 : Gérer les données de l’information
