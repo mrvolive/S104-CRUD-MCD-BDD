@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="SAE 104" company="Groupe 1" webLink="https://github.com/mrvolive/sae104" view-date="2023-10-24" view-index="0" gantt-divider-location="431" resource-divider-location="300" version="3.2.3230" locale="fr_FR">
+    <description>
+        <![CDATA[Réaliser une base de donnée portant sur une partie du SI à partir d’un besoin client]]>
+    </description>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="246" order="0"/>
+        <field id="tpd4" name="Date de début" width="92" order="1"/>
+        <field id="tpd5" name="Date de fin" width="92" order="2"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="color.recent">
+            <![CDATA[#cccc00 #ffcc00 #ff9900 #00ccff #9999ff]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="211" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Rapport d'analyse des besoins" color="#8cb6ce" meeting="false" start="2023-10-27" duration="8" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[⚠️ **Rapport de** ********6 PAGES MAXIMUM********
+
+- **Format :** **PDF**
+- **Nom :** `1_Analyse.pdf`
+
+Il faut déposer **un seul rapport par groupe.** En cas de plusieurs dépôts du même numéro de groupe, le dernier rapport en date sera évalué
+
+**Au delà de 1 heure de retard, vous obtiendrez la note de 0 pour ce livrable.**
+
+Le rapport comporte **5 parties** :
+
+1. Une **page de garde** comportant les informations suivantes : logo du département, date du rapport, nom et groupe des participants (préciser le numéro du groupe de TP d'appartenance) et un titre : "Analyse des besoins de l'organisation/entreprise X" (titre à adapter selon votre sujet)
+
+---
+
+2. Une **présentation de l’organisation/entreprise** étudiée et de **ses besoins**
+
+Vous devez rédiger un paragraphe (1/2 page) qui décrit l'organisation/l'entreprise et ses besoins
+
+(Ajouter à votre présentation des exemples “réels” d’organisation/entreprise similaire via des références bibliographiques)
+
+---
+
+3. Une **synthèse des données pertinentes** qui pourraient être utiles pour l’activité de l’organisation/entreprise.
+
+(Proposer des exemples et des liens de consultation/chargement de ces données si elles sont disponibles en opensource)
+
+4. Un schéma du **Modèle Conceptuel de Données** (réalisé avec un outil graphique type *Looping, JMerise, AnalyseSI,…*)
+
+Le MCD proposé ("simplification" de la réalité) doit être cohérent avec les besoins exprimés en partie 2.
+
+5. Une explication et une **justification** de la modélisation choisie (explication du choix des entités et des associations, justifications des propriétés et des cardinalités)
+]]>
+            </notes>
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <task id="1" name="Réalisation de la Page de Garde" color="#9999ff" meeting="false" start="2023-10-27" duration="1" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[1. Une page de garde comportant les informations suivantes : logo du département, date du rapport, nom et groupe des participants (préciser le numéro du groupe de TP d'appartenance) et un titre : "Analyse des besoins de l'organisation/entreprise X" (titre à adapter selon votre sujet)]]>
+                </notes>
+            </task>
+            <task id="2" name="Présentation de l'entreprise et de ses besoins" color="#00ccff" meeting="false" start="2023-10-27" duration="4" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[2. Une **présentation de l’organisation/entreprise** étudiée et de **ses besoins**
+
+Vous devez rédiger un paragraphe (1/2 page) qui décrit l'organisation/l'entreprise et ses besoins
+
+(Ajouter à votre présentation des exemples “réels” d’organisation/entreprise similaire via des références bibliographiques)]]>
+                </notes>
+            </task>
+            <task id="3" name="Synthèse des données" color="#8cb6ce" meeting="false" start="2023-10-27" duration="2" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <depend id="4" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="4" name="Effectuer le MCD" color="#8cb6ce" meeting="false" start="2023-10-29" duration="2" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[4. Un schéma du **Modèle Conceptuel de Données** (réalisé avec un outil graphique type *Looping, JMerise, AnalyseSI,…*)
+
+Le MCD proposé ("simplification" de la réalité) doit être cohérent avec les besoins exprimés en partie 2.]]>
+                </notes>
+                <depend id="5" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="5" name="Justification du MCD" color="#8cb6ce" meeting="false" start="2023-10-31" duration="2" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[5. Une explication et une justification de la modélisation choisie (explication du choix des entités et des associations, justifications des propriétés et des cardinalités)]]>
+                </notes>
+            </task>
+            <task id="6" name="Mise en page du rapport" color="#9999ff" meeting="false" start="2023-11-01" duration="3" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="7" name="Script création table et requêtes" color="#ff9900" meeting="false" start="2023-11-04" duration="6" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+            <task id="9" name="Création et suppression des tables" color="#ffcc00" meeting="false" start="2023-11-04" duration="2" complete="0" thirdDate="2023-11-06" thirdDate-constraint="0" expand="true">
+                <depend id="10" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="10" name="Insertion de valeurs dans les tables" color="#ffcc00" meeting="false" start="2023-11-06" duration="1" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
+                <depend id="11" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="11" name="Ecriture de requêtes" color="#ffcc00" meeting="false" start="2023-11-07" duration="2" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[créer 2 ou 3 requêtes au minimum avec une/des fonction(s) d'agrégation et certainement des jointures, le jeu de test (les instructions "insert" ci-dessus) doit permettre de mettre en valeur que ces requêtes fonctionnent bien. Nous n'avons pas abordé les jointures mais vous devriez être capables d'en écrire quelques unes sans grosse difficulté en vous documentant sur le web.]]>
+                </notes>
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" name="Création du PDF MCD et MLD" color="#cccc00" meeting="false" start="2023-11-09" duration="1" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="1" name="Olivier MARAVAL" function="Default:1" contacts="" phone=""/>
+        <resource id="0" name="Sugdenaz EKICI" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Yahia KHERZA" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Valentin VIRET-JACQUOT" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="1" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="2" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="4" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
