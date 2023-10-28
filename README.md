@@ -1,8 +1,6 @@
 # Analyse du besoin client et création de Base de Données
 
-<p align="center">
 <img src="https://github.com/mrvolive/sae104/blob/main/other/HWrmq.png?raw=true" alt="Image d'un batiment écologique" width="400"/>
-</p>
 
 ## Compétence ciblée :
 
