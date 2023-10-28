@@ -1,5 +1,7 @@
 # Analyse du besoin client et création de Base de Données
 
+![Image d'un batiment écologique](https://github.com/mrvolive/sae104/blob/main/other/HWrmq.png?raw=true)
+
 ## Compétence ciblée :
 
 Compétence 4 : Gérer les données de l’information
