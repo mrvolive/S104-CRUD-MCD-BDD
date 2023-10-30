@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.30)  30 OCT 2023 13:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.30)  30 OCT 2023 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1333,7 +1333,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 (title.tex
-<./images/InfoLogoQuadriH.png, id=230, 362.3136pt x 93.2283pt>
+<./images/InfoLogoQuadriH.png, id=50, 362.3136pt x 93.2283pt>
 File: ./images/InfoLogoQuadriH.png Graphic file (type png)
 <use ./images/InfoLogoQuadriH.png>
 Package pdftex.def Info: ./images/InfoLogoQuadriH.png  used on input line 5.
@@ -1346,359 +1346,58 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.66 \newpage
-              [1] (abstract.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.12 \end{abstract}
-                    [1]) (main.toc
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.44 ...numberline {5.2}Partie 2}{20}{section.5.2}
-                                                  % [1
-
-])
+l.67 \tableofcontents
+                      [1] (main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2] [3]
-(presentation.tex
+ [2
+
+] [3] (presentation.tex
 Chapitre 1.
+) (besoins.tex [4
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--5
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-<presentation/schema.png, id=323, 799.06076pt x 431.6125pt>
-File: presentation/schema.png Graphic file (type png)
-<use presentation/schema.png>
-Package pdftex.def Info: presentation/schema.png  used on input line 15.
-(pdftex.def)             Requested size: 426.79134pt x 230.5383pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
-
- []
-
-[7
-
- <./presentation/schema.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
-
- []
-
-
-LaTeX Warning: Citation `cite6' on page 8 undefined on input line 63.
-
-) (existant.tex [8]
+]
 Chapitre 2.
+) (donnees.tex [5
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-LaTeX Warning: Citation `cite0' on page 9 undefined on input line 36.
-
-
-LaTeX Warning: Citation `cite1' on page 9 undefined on input line 37.
-
-
-LaTeX Warning: Citation `cite2' on page 9 undefined on input line 38.
-
-
-LaTeX Warning: Citation `cite3' on page 9 undefined on input line 39.
-
-
-LaTeX Warning: Citation `cite4' on page 9 undefined on input line 40.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (besoins.tex [9
-
-] [10]
+]
 Chapitre 3.
-[11
+) (proposition.tex [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-<besoins/rendu.png, id=354, 375.65344pt x 456.95718pt>
-File: besoins/rendu.png Graphic file (type png)
-<use besoins/rendu.png>
-Package pdftex.def Info: besoins/rendu.png  used on input line 31.
-(pdftex.def)             Requested size: 233.91154pt x 284.52756pt.
-[12 <./besoins/rendu.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (autre_partie.tex [13] [14]
 Chapitre 4.
-<autre_partie/image1.jpg, id=371, 475.02469pt x 399.74344pt>
-File: autre_partie/image1.jpg Graphic file (type jpg)
-<use autre_partie/image1.jpg>
-Package pdftex.def Info: autre_partie/image1.jpg  used on input line 13.
-(pdftex.def)             Requested size: 405.75166pt x 341.43306pt.
+) [7
 
-LaTeX Warning: Citation `cite4' on page 15 undefined on input line 21.
-
-[15
-
- <./autre_partie/image1.jpg>]
-<autre_partie/image2.jpg, id=381, 475.02469pt x 399.74344pt>
-File: autre_partie/image2.jpg Graphic file (type jpg)
-<use autre_partie/image2.jpg>
-Package pdftex.def Info: autre_partie/image2.jpg  used on input line 29.
-(pdftex.def)             Requested size: 405.75166pt x 341.43306pt.
-
-
-LaTeX Warning: Citation `cite6' on page 16 undefined on input line 38.
-
-[16 <./autre_partie/image2.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
-
- []
-
-<autre_partie/image3.jpg, id=389, 475.02469pt x 399.74344pt>
-File: autre_partie/image3.jpg Graphic file (type jpg)
-<use autre_partie/image3.jpg>
-Package pdftex.def Info: autre_partie/image3.jpg  used on input line 63.
-(pdftex.def)             Requested size: 202.86496pt x 170.71652pt.
-
-LaTeX Warning: Citation `cite0' on page 17 undefined on input line 70.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
-
- []
-
-<autre_partie/image4.jpg, id=391, 475.02469pt x 399.74344pt>
-File: autre_partie/image4.jpg Graphic file (type jpg)
-<use autre_partie/image4.jpg>
-Package pdftex.def Info: autre_partie/image4.jpg  used on input line 89.
-(pdftex.def)             Requested size: 338.12517pt x 284.52756pt.
-[17 <./autre_partie/image3.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--105
-
- []
-
-[18 <./autre_partie/image4.jpg>]) (resultats.tex [19]
-Chapitre 5.
-[20
-
-]
-<resultats/gallerie.jpg, id=425, 184.43906pt x 296.60812pt>
-File: resultats/gallerie.jpg Graphic file (type jpg)
-<use resultats/gallerie.jpg>
-Package pdftex.def Info: resultats/gallerie.jpg  used on input line 44.
-(pdftex.def)             Requested size: 147.55144pt x 237.2868pt.
-File: resultats/gallerie.jpg Graphic file (type jpg)
-<use resultats/gallerie.jpg>
-Package pdftex.def Info: resultats/gallerie.jpg  used on input line 46.
-(pdftex.def)             Requested size: 147.55144pt x 237.2868pt.
-File: resultats/gallerie.jpg Graphic file (type jpg)
-<use resultats/gallerie.jpg>
-Package pdftex.def Info: resultats/gallerie.jpg  used on input line 48.
-(pdftex.def)             Requested size: 147.55144pt x 237.2868pt.
-File: resultats/gallerie.jpg Graphic file (type jpg)
-<use resultats/gallerie.jpg>
-Package pdftex.def Info: resultats/gallerie.jpg  used on input line 50.
-(pdftex.def)             Requested size: 147.55144pt x 237.2868pt.
-File: resultats/gallerie.jpg Graphic file (type jpg)
-<use resultats/gallerie.jpg>
-Package pdftex.def Info: resultats/gallerie.jpg  used on input line 52.
-(pdftex.def)             Requested size: 147.55144pt x 237.2868pt.
-) (bilan.tex [21 <./resultats/gallerie.jpg>]
-Chapitre 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-[22
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
-
- []
-
-) (annexes.tex [23] [24
-
-] (annexe1.tex) (annexe2.tex [25
-
-]
-pdfTeX warning (ext4): destination with the same identifier (name{section.6.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.23 \section{Partie 1}
-                       
-pdfTeX warning (ext4): destination with the same identifier (name{subsection.6.
-1.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.27 \subsection{Sous-parie 1}
-                              
-pdfTeX warning (ext4): destination with the same identifier (name{subsection.6.
-1.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.31 \subsection{Sous-parie 2}
-                              
-pdfTeX warning (ext4): destination with the same identifier (name{section.6.2})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.35 \section{Partie 2}
-                        [26
-
-]
-File: presentation/schema.png Graphic file (type png)
-<use presentation/schema.png>
-Package pdftex.def Info: presentation/schema.png  used on input line 53.
-(pdftex.def)             Requested size: 421.40306pt x 227.62204pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-
- []
-
-)) [27]
-No file main.bbl.
-(main.aux)
+] (main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 456629F12435638443BAE0F24933D1D8;7210.
+(rerunfilecheck)             Checksum: 9D9B0D825D0228BEAD552E404902379A;1921.
  ) 
 Here is how much of TeX's memory you used:
- 24794 strings out of 475248
- 464181 string characters out of 5757812
- 1932785 words of memory out of 5000000
- 45750 multiletter control sequences out of 15000+600000
- 574715 words of font info for 66 fonts, out of 8000000 for 9000
+ 24483 strings out of 475248
+ 457634 string characters out of 5757812
+ 1923785 words of memory out of 5000000
+ 45558 multiletter control sequences out of 15000+600000
+ 571042 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,10n,133p,2104b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti12
-00.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecbx1000.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\ecti1000.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
-n/ec/dpi600\ecrm1000.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\eccc1200.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\theka\AppData\Local\MiKTeX
-\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\theka\AppData\Local\
-MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\theka\AppData\
-Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\theka\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\th
-eka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Us
-ers\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> 
-<C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx248
-8.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
-ccc2074.pk>
-Output written on main.pdf (27 pages, 345270 bytes).
+ 99i,5n,133p,432b,470s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
+1440.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx1728.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1200.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx1200.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\theka\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\theka\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\theka\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2074.pk>
+Output written on main.pdf (8 pages, 128795 bytes).
 PDF statistics:
- 940 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 509 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 378 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
