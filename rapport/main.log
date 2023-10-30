@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.30)  30 OCT 2023 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.30)  30 OCT 2023 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1224,6 +1224,11 @@ Package caption Info: hyperref package is loaded.
 \sf@top=\skip67
 \sf@bottom=\skip68
 )
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 45.
+
+
 (C:\Users\theka\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
@@ -1691,7 +1696,7 @@ ers\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk>
 <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx248
 8.pk> <C:\Users\theka\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
 ccc2074.pk>
-Output written on main.pdf (27 pages, 345265 bytes).
+Output written on main.pdf (27 pages, 345270 bytes).
 PDF statistics:
  940 PDF objects out of 1000 (max. 8388607)
  117 named destinations out of 1000 (max. 500000)
