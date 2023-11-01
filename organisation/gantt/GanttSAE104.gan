@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="SAE 104" company="Groupe 1" webLink="https://github.com/mrvolive/sae104" view-date="2023-10-26" view-index="1" gantt-divider-location="534" resource-divider-location="537" version="3.2.3247" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="SAE 104" company="Groupe 1" webLink="https://github.com/mrvolive/sae104" view-date="2023-10-26" view-index="0" gantt-divider-location="534" resource-divider-location="537" version="3.2.3247" locale="fr_FR">
     <description>
         <![CDATA[Réaliser une base de donnée portant sur une partie du SI à partir d’un besoin client]]>
     </description>
@@ -8,7 +8,7 @@
         <field id="tpd5" name="Date de fin" width="114" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="color.recent">
-            <![CDATA[#cccc00 #ffcc00 #ff9900 #00ccff #9999ff]]>
+            <![CDATA[#999900 #666600 #009999 #006666 #999999 #ccccff #66ffcc #009900 #ffcc00 #99ffcc]]>
         </option>
     </view>
     <view id="resource-table">
@@ -39,7 +39,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Rapport d'analyse des besoins" color="#8cb6ce" meeting="false" start="2023-10-27" duration="8" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+        <task id="0" name="Rapport d'analyse des besoins" color="#8cb6ce" meeting="false" start="2023-10-27" duration="10" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
             <notes>
                 <![CDATA[⚠️ **Rapport de** ********6 PAGES MAXIMUM********
 
@@ -75,7 +75,6 @@ Le MCD proposé ("simplification" de la réalité) doit être cohérent avec les
 5. Une explication et une **justification** de la modélisation choisie (explication du choix des entités et des associations, justifications des propriétés et des cardinalités)
 ]]>
             </notes>
-            <depend id="7" type="2" difference="0" hardness="Strong"/>
             <task id="1" name="Réalisation de la Page de Garde" color="#9999ff" meeting="false" start="2023-10-27" duration="1" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[1. Une page de garde comportant les informations suivantes : logo du département, date du rapport, nom et groupe des participants (préciser le numéro du groupe de TP d'appartenance) et un titre : "Analyse des besoins de l'organisation/entreprise X" (titre à adapter selon votre sujet)]]>
@@ -101,27 +100,126 @@ Le MCD proposé ("simplification" de la réalité) doit être cohérent avec les
                 </notes>
                 <depend id="5" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="5" name="Justification du MCD" color="#8cb6ce" meeting="false" start="2023-10-31" duration="2" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+            <task id="5" name="Justification du MCD" color="#8cb6ce" meeting="false" start="2023-10-31" duration="3" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[5. Une explication et une justification de la modélisation choisie (explication du choix des entités et des associations, justifications des propriétés et des cardinalités)]]>
                 </notes>
+                <depend id="6" type="2" difference="0" hardness="Strong"/>
+                <depend id="9" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="6" name="Mise en page du rapport" color="#9999ff" meeting="false" start="2023-11-01" duration="3" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true"/>
+            <task id="6" name="Mise en page du rapport" color="#9999ff" meeting="false" start="2023-11-03" duration="3" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="7" name="Script création table et requêtes" color="#ff9900" meeting="false" start="2023-11-04" duration="6" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
-            <task id="9" name="Création et suppression des tables" color="#ffcc00" meeting="false" start="2023-11-04" duration="2" complete="0" thirdDate="2023-11-06" thirdDate-constraint="0" expand="true">
+        <task id="7" name="Script création table et requêtes" color="#ff9900" meeting="false" start="2023-11-03" duration="6" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+            <task id="9" name="Création et suppression des tables" color="#ffcc00" meeting="false" start="2023-11-03" duration="2" complete="0" thirdDate="2023-11-06" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[* supprimer toutes les tables si elles existent (attention à l'ordre, c'est l'inverse de l'ordre de création)
+
+* créer toutes les tables (récupérer le script de looping, et modifier si vous le juger nécessaire le nom de certaines colonnes ....)]]>
+                </notes>
                 <depend id="10" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="10" name="Insertion de valeurs dans les tables" color="#ffcc00" meeting="false" start="2023-11-06" duration="1" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
+            <task id="10" name="Insertion de valeurs dans les tables" color="#ffcc00" meeting="false" start="2023-11-05" duration="1" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[ insérer des valeurs dans toutes les tables pour tester les interfaces que vous allez réaliser (parfois 2 ou 3 enregistrements (tuples) suffisent parfois il en faudra plus).]]>
+                </notes>
                 <depend id="11" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="11" name="Ecriture de requêtes" color="#ffcc00" meeting="false" start="2023-11-07" duration="2" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
+            <task id="11" name="Ecriture de requêtes" color="#ffcc00" meeting="false" start="2023-11-06" duration="2" complete="0" thirdDate="2023-11-04" thirdDate-constraint="0" expand="true">
                 <notes>
                     <![CDATA[créer 2 ou 3 requêtes au minimum avec une/des fonction(s) d'agrégation et certainement des jointures, le jeu de test (les instructions "insert" ci-dessus) doit permettre de mettre en valeur que ces requêtes fonctionnent bien. Nous n'avons pas abordé les jointures mais vous devriez être capables d'en écrire quelques unes sans grosse difficulté en vous documentant sur le web.]]>
                 </notes>
                 <depend id="8" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="8" name="Création du PDF MCD et MLD" color="#cccc00" meeting="false" start="2023-11-09" duration="1" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true"/>
+            <task id="8" name="Création du PDF MCD et MLD" color="#ffcc99" meeting="false" start="2023-11-08" duration="1" complete="0" thirdDate="2023-10-27" thirdDate-constraint="0" expand="true">
+                <notes>
+                    <![CDATA[* Créer un pdf de 2 pages (ou 2 pdf d'une page), ce fichier a pour nom : MCD_MLD.pdf
+       * page 1 : elle est composée du MCD qui  utilise complètement et harmonieusement la page, ajouter sur cette page vos noms, votre groupe de TP (exemple A2) et votre groupe de SAE
+       * page 2 : elle est composée du MLD qui  utilise complètement et harmonieusement la page, ajouter sur cette page vos noms, votre groupe de TP (exemple A2) et votre groupe de SAE]]>
+                </notes>
+                <depend id="13" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="12" name="Application web (en Flask Python)" color="#009900" meeting="false" start="2023-11-09" duration="21" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[- Mettre votre projet dans un dossier qui porte comme nom : `1_maraval` (votre numéro de groupe de SAE suivi du nom du référent du groupe, exemple "19_millet")
+- Archiver votre projet (le nom de l'archive doit être le nom du projet) avec une extension **.zip** ou **.tar.gz** (pas de format microsoft)
+    - Ce dossier doit contenir un fichier de nom “`sql_projet.sql`”, ce fichier est votre script sql à jour pour supprimer, créer toutes les tables dans l'ordre puis insérer dans le bon ordre des enregistrements (un jeu de test).
+    - Ce dossier doit contenir un fichier "`mcd.loo`", ce fichier est votre MCD à jour dessiné avec le logiciel looping.
+    - Ce dossier doit contenir votre application : un fichier `app.py`, un dossier "`templates`" et "`static`", éventuellement **un script shell** pour lancer l'application. (pas de dossier venv)
+    - Votre application doit être fonctionnelle sur une machine de l'IUT avec la commande "`python app.py`" dans un environnement local où les paquets "pymysql" et "flask" sont installés.
+
+**En remplaçant le login et le motDePasse des instructions ci-dessous par votre login et mot de passe sur le serveur mysql de l'iut, les 3 commandes ci-dessous doivent fonctionner pour tester votre application (dans un terminal ouvert dans votre dossier de projet) :**
+
+**wine /opt/looping-mcd/Looping.exe mcd.loomysql --user=login  --password=motDePasse --host=serveurmysql --database=BDD_login < sql_projet.sqlpython app.py**]]>
+            </notes>
+            <task id="19" name="Structure de base du site" color="#00cccc" meeting="false" start="2023-11-09" duration="7" complete="0" thirdDate="2023-11-08" thirdDate-constraint="0" expand="true">
+                <task id="13" name="Création Layout Global, Tableau de Bord et Menu" color="#00cccc" meeting="false" start="2023-11-09" duration="3" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+                    <depend id="14" type="2" difference="0" hardness="Strong"/>
+                    <depend id="15" type="2" difference="0" hardness="Strong"/>
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    <depend id="17" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="14" name="Création Layout Locataires" color="#99ffcc" meeting="false" start="2023-11-12" duration="4" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[locataire = (id_locataire INT AUTO_INCREMENT, prenom_locataire VARCHAR(50), nom_locataire VARCHAR(10), telephone_locataire VARCHAR(10), mail_locataire VARCHAR(100), #id_contrat, #num_appartement);]]>
+                    </notes>
+                    <depend id="21" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="15" name="Création Layout Batiments et Appartement" color="#99ffcc" meeting="false" start="2023-11-12" duration="4" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[batiment = (num_batiment INT AUTO_INCREMENT, nb_etage INT);
+
+appartement = (num_appartement INT AUTO_INCREMENT, superficie_appartement INT, etage_appartement INT, #id_type_appart, #num_batiment);
+]]>
+                    </notes>
+                    <depend id="22" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="16" name="Création Layout Contrats" color="#99ffcc" meeting="false" start="2023-11-12" duration="4" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[signature = (id_signature INT AUTO_INCREMENT, #id_contrat, #id_locataire, #JJ_MM_AAAA);
+
+contrat = (id_contrat INT AUTO_INCREMENT, montant_loyer VARCHAR(50), date_debut_contrat DATE, date_fin_contrat DATE, nb_locataires VARCHAR(50), #num_appartement);
+]]>
+                    </notes>
+                    <depend id="23" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="17" name="Création Layout Consommations" color="#99ffcc" meeting="false" start="2023-11-12" duration="4" complete="0" thirdDate="2023-10-26" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[consommation = (id_conso INT AUTO_INCREMENT, conso_elec_mois INT, conso_eau_mois INT, dechets_mois INT, #JJ_MM_AAAA, #num_appartement);
+]]>
+                    </notes>
+                    <depend id="24" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="20" name="Mise en fonctionnement du site" color="#666600" meeting="false" start="2023-11-16" duration="14" complete="0" thirdDate="2023-11-12" thirdDate-constraint="0" expand="true">
+                <task id="21" name="CRUD Locataires" color="#999900" meeting="false" start="2023-11-16" duration="14" complete="0" thirdDate="2023-11-11" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[locataire = (id_locataire INT AUTO_INCREMENT, prenom_locataire VARCHAR(50), nom_locataire VARCHAR(10), telephone_locataire VARCHAR(10), mail_locataire VARCHAR(100), #id_contrat, #num_appartement);]]>
+                    </notes>
+                </task>
+                <task id="22" name="CRUD Batiments et Appartement" color="#999900" meeting="false" start="2023-11-16" duration="14" complete="0" thirdDate="2023-11-11" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[batiment = (num_batiment INT AUTO_INCREMENT, nb_etage INT);
+
+appartement = (num_appartement INT AUTO_INCREMENT, superficie_appartement INT, etage_appartement INT, #id_type_appart, #num_batiment);
+]]>
+                    </notes>
+                </task>
+                <task id="23" name="CRUD Contrats" color="#999900" meeting="false" start="2023-11-16" duration="14" complete="0" thirdDate="2023-11-11" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[signature = (id_signature INT AUTO_INCREMENT, #id_contrat, #id_locataire, #JJ_MM_AAAA);
+
+contrat = (id_contrat INT AUTO_INCREMENT, montant_loyer VARCHAR(50), date_debut_contrat DATE, date_fin_contrat DATE, nb_locataires VARCHAR(50), #num_appartement);
+]]>
+                    </notes>
+                </task>
+                <task id="24" name="CRUD Consommations" color="#999900" meeting="false" start="2023-11-16" duration="14" complete="0" thirdDate="2023-11-11" thirdDate-constraint="0" expand="true">
+                    <notes>
+                        <![CDATA[consommation = (id_conso INT AUTO_INCREMENT, conso_elec_mois INT, conso_eau_mois INT, dechets_mois INT, #JJ_MM_AAAA, #num_appartement);
+]]>
+                    </notes>
+                </task>
+            </task>
         </task>
     </tasks>
     <resources>
@@ -134,11 +232,33 @@ Le MCD proposé ("simplification" de la réalité) doit être cohérent avec les
         <allocation task-id="1" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
         <allocation task-id="3" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="6" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
+        <allocation task-id="13" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="24" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="1" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="1" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="3" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="23" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="16" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="4" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="3" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="4" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="5" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="13" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="22" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
