@@ -27,6 +27,8 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 %Pour les galerie d'images
 \usepackage{subfig}
+\usepackage[rightcaption]{sidecap}
+\graphicspath{ {images/} }
 
 %====================== INFORMATION ET REGLES ======================
 
@@ -67,7 +69,8 @@ pdfstartview={FitH}}					% ajuste la page à la largueur de l'écran
 \tableofcontents
 \thispagestyle{empty}
 
-%ne pas numéroter le sommaire
+\listoffigures
+\thispagestyle{empty}
 
 \newpage
 
