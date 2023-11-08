@@ -1,13 +1,18 @@
 \babel@toc {french}{}\relax 
 \thispagestyle {empty}
-\contentsline {chapter}{\numberline {1}Présentation de l'entreprise et de ses besoins}{4}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Analyse de l'existant}{4}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Présentation de LOCECO}{4}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Présentation d'entreprises similaires à LOCECO}{4}{subsection.1.1.2}%
-\contentsline {chapter}{\numberline {2}Analyse des besoins}{5}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Synthèse des Données}{6}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Proposition de modélisation}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Le MCD}{7}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Schéma}{7}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Explication}{7}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Justification de ce choix}{7}{section.4.2}%
+\contentsline {chapter}{\numberline {1}Analyse de l'existant}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Les écoquartiers}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}L'entreprise et l'écoquartier}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Présentation de LOCECO}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Présentation d'une entreprise similaire : La SERS}{6}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Analyse des besoins}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Résumé du besoin énoncé}{7}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Synthèse des Données}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Résumé des données}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Explication concernant le choix des données}{8}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Proposition de modélisation}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Le MCD}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Explication et Justification de ce choix}{10}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Locataires et Contrats}{10}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Bâtiments et Appartements}{10}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}consommation}{10}{subsection.4.2.3}%

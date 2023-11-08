@@ -1,12 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  3 NOV 2023 14:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.3)  8 NOV 2023 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Tra
-vail/Etudes/IUT/Cours/SAE/sae104/rapport/main.tex"
-
-(C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Trava
-il/Etudes/IUT/Cours/SAE/sae104/rapport/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-23>
 (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
@@ -1226,63 +1223,77 @@ Package caption Info: hyperref package is loaded.
 \c@lotdepth=\count333
 \sf@top=\skip67
 \sf@bottom=\skip68
+) (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/sidecap\sidecap.sty
+Package: sidecap 2023/01/24 v1.7a SideCap Package (RN/HjG)
+\SC@BOXWD=\dimen298
+\SC@CAPWD=\dimen299
+\SC@tempdima=\dimen300
+\SC@tempdimb=\dimen301
+\c@SC@C=\count334
+\SC@BOX=\box68
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 45.
+(hyperref)                removing `subscript' on input line 47.
 
 
 (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count334
-\l__pdf_internal_box=\box68
-)
-(C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Trava
-il/Etudes/IUT/Cours/SAE/sae104/rapport\main.aux)
+\l__color_backend_stack_int=\count335
+\l__pdf_internal_box=\box69
+) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Info: Redefining \degres on input line 51.
-LaTeX Info: Redefining \up on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Info: Redefining \degres on input line 53.
+LaTeX Info: Redefining \up on input line 53.
 
 (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
-\scratchdimen=\dimen298
-\scratchbox=\box69
-\nofMPsegments=\count336
-\nofMParguments=\count337
+\scratchcounter=\count336
+\scratchdimen=\dimen302
+\scratchbox=\box70
+\nofMPsegments=\count337
+\nofMParguments=\count338
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count338
-\MPscratchDim=\dimen299
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
+\MPscratchCnt=\count339
+\MPscratchDim=\dimen303
+\MPnumerator=\count340
+\makeMPintoPDFobject=\count341
 \everyMPtoPDFconversion=\toks46
 )
 (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
 fg
@@ -1292,14 +1303,10 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 51.
+loading the todonotes package. on input line 53.
 
-Package hyperref Info: Link coloring OFF on input line 51.
-
-(C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Trava
-il/Etudes/IUT/Cours/SAE/sae104/rapport\main.out)
-(C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Trava
-il/Etudes/IUT/Cours/SAE/sae104/rapport\main.out)
+Package hyperref Info: Link coloring OFF on input line 53.
+(main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -1340,44 +1347,158 @@ il/Etudes/IUT/Cours/SAE/sae104/rapport\main.out)
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-(C:/Users\marav\OneDrive\Documents\Documents Personnels\Documents Olivier\Trava
-il\Etudes\IUT\Cours\SAE\sae104\rapport\title.tex
-<./images/InfoLogoQuadriH.png, id=50, 362.3136pt x 93.2283pt>
+(C:\Users\marav\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip69
+\RaggedLeftLeftskip=\skip70
+\RaggedRightLeftskip=\skip71
+\CenteringRightskip=\skip72
+\RaggedLeftRightskip=\skip73
+\RaggedRightRightskip=\skip74
+\CenteringParfillskip=\skip75
+\RaggedLeftParfillskip=\skip76
+\RaggedRightParfillskip=\skip77
+\JustifyingParfillskip=\skip78
+\CenteringParindent=\skip79
+\RaggedLeftParindent=\skip80
+\RaggedRightParindent=\skip81
+\JustifyingParindent=\skip82
+)
+(title.tex
+<./images/InfoLogoQuadriH.png, id=70, 362.3136pt x 93.2283pt>
 File: ./images/InfoLogoQuadriH.png Graphic file (type png)
 <use ./images/InfoLogoQuadriH.png>
 Package pdftex.def Info: ./images/InfoLogoQuadriH.png  used on input line 5.
 (pdftex.def)             Requested size: 241.84843pt x 62.23076pt.
  [1
 
-{C:/Users/marav/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <C:/Users/mar
-av/OneDrive/Documents/Documents Personnels/Documents Olivier/Travail/Etudes/IUT
-/Cours/SAE/sae104/rapport/images/InfoLogoQuadriH.png>])
+{C:/Users/marav/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/Inf
+oLogoQuadriH.png>])
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.67 \tableofcontents
-                      [1]
-(C:/Users/marav/OneDrive/Documents/Documents Personnels/Documents Olivier/Trava
-il/Etudes/IUT/Cours/SAE/sae104/rapport\main.toc)
+l.69 \tableofcontents
+                      [1] (main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
  [2
 
-] [3]
-(C:/Users\marav\OneDrive\Documents\Documents Personnels\Documents Olivier\Trava
-il\Etudes\IUT\Cours\SAE\sae104\rapport\presentation.tex
+] (main.lof)
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [3
+
+] [4] (presentation.tex
 Chapitre 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+[5
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
-!pdfTeX error: pdflatex (file C:/Users/marav/OneDrive/Documents/Documents Perso
-nnels/Documents Olivier/Travail/Etudes/IUT/Cours/SAE/sae104/rapport/images/vaub
-an-10029.jpg): reading JPEG image failed (no JPEG header found)
- ==> Fatal error occurred, no output PDF file produced!
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+<images/prairiescanal.png, id=127, 667.49374pt x 275.52937pt>
+File: images/prairiescanal.png Graphic file (type png)
+<use images/prairiescanal.png>
+Package pdftex.def Info: images/prairiescanal.png  used on input line 37.
+(pdftex.def)             Requested size: 426.79134pt x 176.17422pt.
+) (besoins.tex [6 <./images/prairiescanal.png>]
+Chapitre 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+) (donnees.tex [7
+
+]
+Chapitre 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[]|\T1/cmr/m/n/12 Nombre d'ap-par-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[]|\T1/cmr/m/n/12 Consommation en
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[]|\T1/cmr/m/n/12 Consommation en
+ []
+
+) (proposition.tex [8
+
+]
+Chapitre 4.
+<images/mcd.png, id=145, 648.92438pt x 536.50438pt>
+File: images/mcd.png Graphic file (type png)
+<use images/mcd.png>
+Package pdftex.def Info: images/mcd.png  used on input line 7.
+(pdftex.def)             Requested size: 426.79134pt x 352.85783pt.
+[9
+
+ <./images/mcd.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+) [10] (main.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-10-23>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: AEEA46B87B38B8E707757C50BD06E6FF;2987.
+ ) 
+Here is how much of TeX's memory you used:
+ 24760 strings out of 474718
+ 463199 string characters out of 5748457
+ 1934036 words of memory out of 5000000
+ 46338 multiletter control sequences out of 15000+600000
+ 571042 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,10n,133p,1082b,474s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc
+1200.pk> <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx1440.pk> <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1728.pk> <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1200.pk> <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\marav\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\eccc1440.pk> <C:\Users\marav\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\marav\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\marav\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\marav\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2074.pk>
+Output written on main.pdf (11 pages, 2201260 bytes).
+PDF statistics:
+ 516 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+
