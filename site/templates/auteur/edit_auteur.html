@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Modifier un auteur</title>
+{% endblock %}
+
+{% block body %}
+<h2>Modifier un auteur</h2>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+<form method="post" action="/auteur/edit">
+  <fieldset>
+    <legend> Modifier un auteur</legend>
+    <input type="hidden" name="id" size="18" value="{{ auteur.id }}" id="id">
+    <label for="nomAuteur">Nom de l'auteur</label><br>
+    <input type="text" name="nomAuteur" size="18" value="{{ auteur.nomAuteur }}" id="nomAuteur" required><br>
+    <input type="submit" value="Modifier" name="Modifier">
+  </fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,125 @@
+body {
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+.scale-up-center {
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scale-up-center {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.card{
+
+    box-shadow: 0px 0px 10px 0px rgba(94, 94, 94, 0.74);
+    transition: all .2s;
+}
+
+.card:hover{
+    scale: 1.05;
+}
+
+.card-footer {
+    margin-top: 15px;
+}
+
+table,
+tr {
+    width: 40%;
+    border: solid 5px;
+    border-color: black;
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+a:hover {
+    color: red;
+}
+
+.flashes {
+    padding: 5px;
+    margin: 5px;
+}
+
+.alert-warning {
+    background-color: rgba(255, 197, 197, 1);
+}
+
+.alert-success {
+    background-color: #bdfdbd;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Flexbox */
+
+.flexbox {
+    width: 100%;
+
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.flexitem {
+    flex: 0 1 auto;
+}
+
+/* Grid */
+
+.grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 50px;
+
+    align-items: center;
+}
+
+
+.grid-item {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.grid3 {
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 50px;
+
+    align-items: center;
+}

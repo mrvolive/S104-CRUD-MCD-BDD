@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Afficher les auteurs</title>
+{% endblock %}
+
+{% block body %}
+<h3>Auteurs</h3>
+<a href="/auteur/add">Ajouter un auteur</a>
+<br><br>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>Nom de l'auteur</th>
+            <th>Opération</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if auteurs | length >= 1 %}
+        {% for ligne in auteurs %}
+        <tr>
+            <td>{{ ligne.id }}</td>
+            <td>{{ ligne.nomAuteur }}</td>
+            <td>
+                <a href="/auteur/edit?id={{ ligne.id }}">Editer</a>&nbsp;
+                <a href="/auteur/delete?id={{ ligne.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td>
+                Pas d'auteur :(
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
