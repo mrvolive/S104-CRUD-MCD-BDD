@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Afficher les Cards</title>
+{% endblock %}
+
+{% block body %}
+
+<h3>Cards</h3>
+
+<div class="grid center">
+
+    <div class="grid-item">
+        <fieldset>
+            <legend>Auteurs</legend>
+            {% for ligne in auteurs %}
+                <div>
+                    <input type="checkbox" id="{{ ligne.nomAuteur }}" name="{{ ligne.nomAuteur }}">
+                    <label for="{{ ligne.nomAuteur }}">{{ ligne.nomAuteur }}</label>
+                </div>
+            {% endfor %}
+        </fieldset><br>
+    </div>
+
+    <div class="grid-item">
+        <fieldset>
+            <legend>Prix</legend>
+                <div>
+                    <input type="number" id="prixmin" name="prixmin" placeholder="Min">
+                    <input type="number" id="prixmax" name="prixmax" placeholder="Max">
+                    
+                </div><br>
+                <a href="#" class="btn btn-primary">Filtrer</a>
+        </fieldset><br>
+    </div>
+
+</div>
+
+<div class="flexbox" style="margin-top: 20px;">
+    {% for ligne in bandesDessinees %}
+        <div class="card scale-up-center center" style="width: 20rem;">
+            
+            <div class="card-body flexitem">
+                <h5 class="card-title">{{ ligne.titre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ ligne.prix }} €</h6>
+
+                <p class="card-text">                
+                    {% if ligne.image is not none %}
+                        <img class="center" style="width:auto;" src="{{ url_for('static', filename = 'images/' + ligne['image']) }}"
+                        alt="image  de {{ ligne.titre }}">
+                    {% else %}
+                        <img class="center" style="width:200px; height:273px;" src="{{ url_for('static', filename='images/logo_sujet_8.png')}}"
+                        alt="no image">
+                    {% endif %}
+                </p>
+                <hr>
+                <div class="grid">
+                    <div><input type="number" style="width: 5rem; margin-left: 2rem;"></div>
+                    <div><a href="#" class="btn btn-primary">Ajouter</a></div>
+                </div>
+                <div class="card-footer text-muted">
+                    <p style="text-align: center;">Paru le : {{ ligne.dateParution }}</p>
+                </div>
+            </div>
+            
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
