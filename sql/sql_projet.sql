@@ -95,5 +95,55 @@ INSERT INTO signatures VALUES (3,3);
 INSERT INTO signatures VALUES (4,4);
 INSERT INTO consommation VALUES (1,'2017-12-31', 5, 25, 150);
 INSERT INTO consommation VALUES (1,'2018-01-31', 10, 30, 200);
-INSERT INTO consommation VALUES (1,'2018-01-31', 7, 20, 250);
-INSERT INTO consommation VALUES (1,'2018-01-31', 8, 15, 270);
+INSERT INTO consommation VALUES (1,'2018-02-28', 7, 20, 250);
+INSERT INTO consommation VALUES (1,'2018-03-31', 8, 15, 270);
+INSERT INTO consommation VALUES (2,'2017-12-31', 6, 22, 120);
+INSERT INTO consommation VALUES (2,'2018-01-31', 10, 30, 150);
+INSERT INTO consommation VALUES (2,'2018-02-28', 7, 22, 200);
+INSERT INTO consommation VALUES (2,'2018-03-31', 9, 15, 220);
+INSERT INTO consommation VALUES (3,'2018-12-31', 5, 25, 120);
+INSERT INTO consommation VALUES (3,'2019-01-31', 8, 30, 125);
+INSERT INTO consommation VALUES (3,'2019-02-28', 7, 20, 170);
+INSERT INTO consommation VALUES (3,'2019-03-31', 5, 12, 150);
+INSERT INTO consommation VALUES (4,'2019-12-31', 5, 25, 120);
+INSERT INTO consommation VALUES (4,'2020-01-31', 8, 22, 135);
+INSERT INTO consommation VALUES (4,'2020-02-29', 7, 18, 160);
+INSERT INTO consommation VALUES (4,'2020-03-31', 5, 15, 125);
+
+SELECT COUNT(appartement.num_appartement) as conso_elec_en_dessous_de_200 , appartement.num_appartement as appartement_n°
+FROM appartement
+INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+WHERE conso_elec_mois < 200
+GROUP BY appartement.num_appartement;
+
+SELECT ROUND(AVG(montant_loyer),2) as loyer_moyen
+FROM contrat;
+
+SELECT ROUND(AVG(conso_eau_mois),2) as conso_eau_moyenne,
+        ROUND(AVG(dechets_mois),2) as dechets_moyen,
+        ROUND(AVG(conso_elec_mois),2) as conso_elec_moyenne,
+        appartement.num_appartement as appartement_n°
+FROM appartement
+INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+GROUP BY appartement.num_appartement;
+
+SELECT locataire.nom_locataire, locataire.prenom_locataire,MAX(consommation.conso_eau_mois) AS conso_eau_mois_max
+FROM appartement
+INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
+INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+WHERE consommation.conso_eau_mois = (SELECT MAX(conso_eau_mois) FROM consommation)
+GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
+
+SELECT locataire.nom_locataire, locataire.prenom_locataire,MAX(consommation.conso_elec_mois) AS conso_elec_mois_max
+FROM appartement
+INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
+INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+WHERE consommation.conso_elec_mois = (SELECT MAX(conso_elec_mois) FROM consommation)
+GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
+
+SELECT locataire.nom_locataire, locataire.prenom_locataire,MAX(consommation.dechets_mois) AS dechets_mois_max
+FROM appartement
+INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
+INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+WHERE consommation.dechets_mois = (SELECT MAX(dechets_mois) FROM consommation)
+GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
