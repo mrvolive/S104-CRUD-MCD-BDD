@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon"  href="{{ url_for('static', filename='iconeweb.ico') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='mes_styles.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" >
+    <title>Etudiants</title>
+</head>
+<body>
+
+{#{{ etudiants }}#}
+<h1>listes des étudiants<img src="{{ url_for('static', filename='image_iut.jpeg') }}" alt="image iut"  /></h1>
+
+<a href="/etudiant/add" >ajouter un étudiant</a>
+
+{% if etudiants | length >= 1 %}
+    <table>
+        <tr>
+            <th>id</th><th>nom</th><th>groupe</th>
+        </tr>
+        {% for etudiant in etudiants %}
+            <tr>
+                {# commentaires : autre notation possible, on affiche un element du dictionnaire
+                <td>{{ etudiant['id'] }}</td><td>{{ etudiant['nom'] }}</td><td>{{ etudiant['groupe'] }}</td>
+            #}
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.groupe }}</td>
+                <td>
+                      <a href="/etudiant/edit?id={{ etudiant.id }}">editer</a>&nbsp;
+                      <a href="/etudiant/delete?id={{ etudiant.id }}" >supprimer</a>
+                  </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h2> la liste des étudiants est vide</h2>
+{% endif %}
+
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>    
+</body>
+</html>
