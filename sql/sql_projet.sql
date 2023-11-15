@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS batiment;
 
 CREATE TABLE batiment(
    num_batiment INT AUTO_INCREMENT,
-   nb_etage INT,
+   nb_etage INT NOT NULL,
    PRIMARY KEY(num_batiment)
 );
 
@@ -20,8 +20,8 @@ CREATE TABLE typeAppartement(
 
 CREATE TABLE appartement(
    num_appartement INT AUTO_INCREMENT,
-   superficie_appartement INT,
-   etage_appartement INT,
+   superficie_appartement INT NOT NULL,
+   etage_appartement INT NOT NULL,
    id_type_appart INT NOT NULL,
    num_batiment INT NOT NULL,
    PRIMARY KEY(num_appartement),
@@ -43,9 +43,9 @@ CREATE TABLE locataire(
 CREATE TABLE contrat(
    id_contrat INT AUTO_INCREMENT,
    montant_loyer DECIMAL(6,2),
-   date_signature DATE,
-   date_debut_contrat DATE,
-   date_fin_contrat DATE,
+   date_signature DATE NOT NULL,
+   date_debut_contrat DATE NOT NULL ,
+   date_fin_contrat DATE NOT NULL ,
    nb_locataires INT NOT NULL,
    num_appartement INT NOT NULL,
    PRIMARY KEY(id_contrat),
