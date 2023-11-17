@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="SAE 104" company="Groupe 1" webLink="https://github.com/mrvolive/sae104" view-date="2023-10-26" view-index="0" gantt-divider-location="534" resource-divider-location="537" version="3.2.3247" locale="fr_FR">
+<?xml version="1.0" encoding="UTF-8"?><project name="SAE 104" company="Groupe 1" webLink="https://github.com/mrvolive/sae104" view-date="2023-10-26" view-index="0" gantt-divider-location="534" resource-divider-location="537" version="3.2.3230" locale="fr_FR">
     <description>
         <![CDATA[Réaliser une base de donnée portant sur une partie du SI à partir d’un besoin client]]>
     </description>
@@ -13,7 +13,7 @@
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="328" order="0"/>
-        <field id="1" name="Rôle par défaut" width="205" order="1"/>
+        <field id="1" name="Rôle par défaut" width="206" order="1"/>
     </view>
     <!-- -->
     <calendars>
