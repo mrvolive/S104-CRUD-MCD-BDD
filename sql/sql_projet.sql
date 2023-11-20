@@ -1,10 +1,17 @@
-DROP TABLE IF EXISTS consommation;
+DROP TABLE IF EXISTS consomme;
 DROP TABLE IF EXISTS signatures;
 DROP TABLE IF EXISTS contrat;
 DROP TABLE IF EXISTS locataire;
 DROP TABLE IF EXISTS appartement;
 DROP TABLE IF EXISTS typeAppartement;
 DROP TABLE IF EXISTS batiment;
+DROP TABLE IF EXISTS consommable;
+
+CREATE TABLE consommable(
+   id_consommable INT AUTO_INCREMENT,
+   libelle_consommable VARCHAR(50),
+   PRIMARY KEY(id_consommable)
+);
 
 CREATE TABLE batiment(
    num_batiment INT AUTO_INCREMENT,
@@ -34,6 +41,7 @@ CREATE TABLE locataire(
    prenom_locataire VARCHAR(50),
    nom_locataire VARCHAR(50),
    telephone_locataire VARCHAR(15),
+   age_locataire INT,
    mail_locataire VARCHAR(100),
    num_appartement INT NOT NULL,
    PRIMARY KEY(id_locataire),
@@ -60,14 +68,15 @@ CREATE TABLE signatures(
    FOREIGN KEY(id_contrat) REFERENCES contrat(id_contrat)
 );
 
-CREATE TABLE consommation(
-   num_appartement INT,
-   date_conso DATE,
-   conso_eau_mois INT, -- en litre
-   dechets_mois INT, -- en kg
-   conso_elec_mois INT, -- en kWh
-   PRIMARY KEY(num_appartement, date_conso),
-   FOREIGN KEY(num_appartement) REFERENCES appartement(num_appartement)
+CREATE TABLE consomme(
+    id_consomme INT AUTO_INCREMENT,
+    date_conso DATE,
+    quantite_consomme INT,
+    id_consommable INT NOT NULL,
+    num_appartement INT,
+    PRIMARY KEY(id_consomme),
+    FOREIGN KEY(num_appartement) REFERENCES appartement(num_appartement),
+    FOREIGN KEY(id_consommable) REFERENCES consommable(id_consommable)
 );
 
 INSERT INTO batiment VALUES (NULL,3);
@@ -81,10 +90,10 @@ INSERT INTO appartement VALUES (NULL,20,1,1,1);
 INSERT INTO appartement VALUES (NULL,40,2,2,1);
 INSERT INTO appartement VALUES (NULL,60,1,3,3);
 INSERT INTO appartement VALUES (NULL,80,1,4,2);
-INSERT INTO locataire VALUES (NULL,'David K.','Babcock','05.47.01.73.35', 'DavidK.Babcock@yahoo.fr',1);
-INSERT INTO locataire VALUES (NULL,'Bahirah Rahimah','Maalouf','04.27.30.95.13', 'BahirahRahimahMaalouf@jourrapide.com',2);
-INSERT INTO locataire VALUES (NULL,'Duenna','Took-Brandybuck','01.75.95.05.21', 'DuennaTook-Brandybuck@armyspy.com',3);
-INSERT INTO locataire VALUES (NULL,'Chinweike','Kenechukwu','03.21.21.53.68', 'ChinweikeKenechukwu@teleworm.us',4);
+INSERT INTO locataire VALUES (NULL,'David K.','Babcock','0547017335','56', 'DavidK.Babcock@yahoo.fr',1);
+INSERT INTO locataire VALUES (NULL,'Bahirah Rahimah','Maalouf','0427309513','65', 'BahirahRahimahMaalouf@jourrapide.com',2);
+INSERT INTO locataire VALUES (NULL,'Duenna','Took-Brandybuck','0175950521','40', 'DuennaTook-Brandybuck@armyspy.com',3);
+INSERT INTO locataire VALUES (NULL,'Chinweike','Kenechukwu','0321153682','53', 'ChinweikeKenechukwu@teleworm.us',4);
 INSERT INTO contrat VALUES (NULL, 500.00, '2016-01-10', '2016-01-20', '2024-03-15', 1, 1);
 INSERT INTO contrat VALUES (NULL, 700.00, '2017-02-10', '2017-01-20', '2024-04-20', 1, 2);
 INSERT INTO contrat VALUES (NULL, 850.00, '2018-03-10', '2018-01-20', '2024-05-25', 1, 3);
@@ -93,57 +102,106 @@ INSERT INTO signatures VALUES (1,1);
 INSERT INTO signatures VALUES (2,2);
 INSERT INTO signatures VALUES (3,3);
 INSERT INTO signatures VALUES (4,4);
-INSERT INTO consommation VALUES (1,'2017-12-31', 4234, 35, 292);
-INSERT INTO consommation VALUES (1,'2018-01-31', 4435, 42, 245);
-INSERT INTO consommation VALUES (1,'2018-02-28', 4498, 33, 327);
-INSERT INTO consommation VALUES (1,'2018-03-31', 4534, 25, 245);
-INSERT INTO consommation VALUES (2,'2017-12-31', 4980, 32, 335);
-INSERT INTO consommation VALUES (2,'2018-01-31', 4239, 47, 265);
-INSERT INTO consommation VALUES (2,'2018-02-28', 4890, 32, 312);
-INSERT INTO consommation VALUES (2,'2018-03-31', 4098, 25, 332);
-INSERT INTO consommation VALUES (3,'2018-12-31', 4921, 35, 277);
-INSERT INTO consommation VALUES (3,'2019-01-31', 4923, 41, 267);
-INSERT INTO consommation VALUES (3,'2019-02-28', 4653, 36, 248);
-INSERT INTO consommation VALUES (3,'2019-03-31', 5203, 23, 305);
-INSERT INTO consommation VALUES (4,'2019-12-31', 4563, 35, 265);
-INSERT INTO consommation VALUES (4,'2020-01-31', 4278, 32, 278);
-INSERT INTO consommation VALUES (4,'2020-02-29', 5023, 28, 319);
-INSERT INTO consommation VALUES (4,'2020-03-31', 4672, 25, 278);
+INSERT INTO consommable VALUES (NULL,'Eau');
+INSERT INTO consommable VALUES (NULL,'Electricité');
+INSERT INTO consommable VALUES (NULL,'Déchets');
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 4234, 1, 1);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 4435, 1, 1);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 4498, 1, 1);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 4534, 1, 1);
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 4980, 1, 2);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 4239, 1, 2);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 4890, 1, 2);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 4098, 1, 2);
+INSERT INTO consomme VALUES (NULL,'2018-12-31', 4921, 1, 3);
+INSERT INTO consomme VALUES (NULL,'2019-01-31', 4923, 1, 3);
+INSERT INTO consomme VALUES (NULL,'2019-02-28', 4653, 1, 3);
+INSERT INTO consomme VALUES (NULL,'2019-03-31', 5203, 1, 3);
+INSERT INTO consomme VALUES (NULL,'2019-12-31', 4563, 1, 4);
+INSERT INTO consomme VALUES (NULL,'2020-01-31', 4278, 1, 4);
+INSERT INTO consomme VALUES (NULL,'2020-02-29', 5023, 1, 4);
+INSERT INTO consomme VALUES (NULL,'2020-03-31', 4672, 1, 4);
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 35, 2, 1);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 42, 2, 1);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 33, 2, 1);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 25, 2, 1);
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 32, 2, 2);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 47, 2, 2);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 32, 2, 2);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 25, 2, 2);
+INSERT INTO consomme VALUES (NULL,'2018-12-31', 35, 2, 3);
+INSERT INTO consomme VALUES (NULL,'2019-01-31', 41, 2, 3);
+INSERT INTO consomme VALUES (NULL,'2019-02-28', 36, 2, 3);
+INSERT INTO consomme VALUES (NULL,'2019-03-31', 23, 2, 3);
+INSERT INTO consomme VALUES (NULL,'2019-12-31', 35, 2, 4);
+INSERT INTO consomme VALUES (NULL,'2020-01-31', 32, 2, 4);
+INSERT INTO consomme VALUES (NULL,'2020-02-29', 28, 2, 4);
+INSERT INTO consomme VALUES (NULL,'2020-03-31', 25, 2, 4);
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 292, 3, 1);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 245, 3, 1);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 327, 3, 1);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 245, 3, 1);
+INSERT INTO consomme VALUES (NULL,'2017-12-31', 335, 3, 2);
+INSERT INTO consomme VALUES (NULL,'2018-01-31', 265, 3, 2);
+INSERT INTO consomme VALUES (NULL,'2018-02-28', 312, 3, 2);
+INSERT INTO consomme VALUES (NULL,'2018-03-31', 332, 3, 2);
+INSERT INTO consomme VALUES (NULL,'2018-12-31', 277, 3, 3);
+INSERT INTO consomme VALUES (NULL,'2019-01-31', 267, 3, 3);
+INSERT INTO consomme VALUES (NULL,'2019-02-28', 248, 3, 3);
+INSERT INTO consomme VALUES (NULL,'2019-03-31', 305, 3, 3);
+INSERT INTO consomme VALUES (NULL,'2019-12-31', 265, 3, 4);
+INSERT INTO consomme VALUES (NULL,'2020-01-31', 278, 3, 4);
+INSERT INTO consomme VALUES (NULL,'2020-02-29', 319, 3, 4);
+INSERT INTO consomme VALUES (NULL,'2020-03-31', 278, 3, 4);
 
 SELECT COUNT(appartement.num_appartement) as 'Consommation Electrique > 300 kWh/mois' , appartement.num_appartement as 'Numéro d\'appartement'
-FROM appartement
-INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
-WHERE conso_elec_mois > 300
+FROM consomme
+INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300
 GROUP BY appartement.num_appartement;
 
 SELECT ROUND(AVG(montant_loyer),2) as 'Loyer Moyen en €/mois'
 FROM contrat;
 
-SELECT ROUND(AVG(conso_eau_mois),2) as conso_eau_moyenne,
-        ROUND(AVG(dechets_mois),2) as dechets_moyen,
-        ROUND(AVG(conso_elec_mois),2) as conso_elec_moyenne,
+SELECT ROUND(AVG(quantite_consomme),2) as conso_eau_moyenne,
         appartement.num_appartement as appartement_n°
-FROM appartement
-INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
+FROM consomme
+INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+WHERE consomme.id_consommable = 1
 GROUP BY appartement.num_appartement;
 
-SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement,MAX(consommation.conso_eau_mois) AS conso_eau_mois_max
+SELECT ROUND(AVG(quantite_consomme),2) as conso_elec_moyenne,
+        appartement.num_appartement as appartement_n°
+FROM consomme
+INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+WHERE consomme.id_consommable = 2
+GROUP BY appartement.num_appartement;
+
+SELECT  ROUND(AVG(quantite_consomme),2) as dechets_moyen,
+        appartement.num_appartement as appartement_n°
+FROM consomme
+INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+WHERE consomme.id_consommable = 3
+GROUP BY appartement.num_appartement;
+
+
+SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement AS 'Numéro d\'appartement',MAX(consomme.quantite_consomme) AS conso_eau_mois_max
 FROM appartement
 INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
-INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
-WHERE consommation.conso_eau_mois = (SELECT MAX(conso_eau_mois) FROM consommation)
+INNER JOIN consomme on appartement.num_appartement = consomme.num_appartement
+WHERE consomme.quantite_consomme = (SELECT MAX(quantite_consomme) FROM consomme WHERE id_consommable = 1) AND consomme.id_consommable = 1
 GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
 
-SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement,MAX(consommation.conso_elec_mois) AS conso_elec_mois_max
+SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement AS 'Numéro d\'appartement',MAX(consomme.quantite_consomme) AS conso_elec_mois_max
 FROM appartement
 INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
-INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
-WHERE consommation.conso_elec_mois = (SELECT MAX(conso_elec_mois) FROM consommation)
+INNER JOIN consomme on appartement.num_appartement = consomme.num_appartement
+WHERE consomme.quantite_consomme = (SELECT MAX(quantite_consomme) FROM consomme WHERE id_consommable = 2) AND consomme.id_consommable = 2
 GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
 
-SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement,MAX(consommation.dechets_mois) AS dechets_mois_max
+SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement AS 'Numéro d\'appartement',MAX(consomme.quantite_consomme) AS dechets_mois_max
 FROM appartement
 INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
-INNER JOIN consommation on appartement.num_appartement = consommation.num_appartement
-WHERE consommation.dechets_mois = (SELECT MAX(dechets_mois) FROM consommation)
+INNER JOIN consomme on appartement.num_appartement = consomme.num_appartement
+WHERE consomme.quantite_consomme = (SELECT MAX(quantite_consomme) FROM consomme)
 GROUP BY locataire.nom_locataire, locataire.prenom_locataire;
