@@ -13,10 +13,10 @@ app.secret_key = 'azerty'
 def get_db():
     if 'db' not in g:
         g.db =  pymysql.connect(
-            host="localhost",                 # à modifier
-            user="omaraval",                     # à modifier
-            password="3112",                # à modifier
-            database="BDD_omaraval",        # à modifier
+            host="localhost",
+            user="omaraval",
+            password="3112",
+            database="BDD_omaraval",
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor
         )
@@ -34,6 +34,8 @@ def teardown_db(exception):
 ################
 
 @app.route('/')
+def show_index():
+    return render_template('index.html')
 
 # == Routes appartements == #
 
