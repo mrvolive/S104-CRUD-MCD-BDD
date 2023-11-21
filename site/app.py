@@ -40,6 +40,15 @@ def show_index():
 # == Routes appartements == #
 
 # == Routes consommations == #
+@app.route('/consommations/show')
+def show_consommations():
+    # mycursor = get_db().cursor()
+    # sql='''SELECT id_consommation AS id, date_consommation AS date, montant_consommation AS montant, id_locataire AS locataire
+    # FROM consommation
+    # ORDER BY date_consommation;'''
+    # mycursor.execute(sql)
+    # liste_consommations = mycursor.fetchall()
+    return render_template('consommations/show_consommations.html')
 
 # == Routes contrats == #
 
