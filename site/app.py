@@ -7,48 +7,56 @@ import pymysql.cursors
 
 # == Configuration == #
 app = Flask(__name__)
-app.secret_key = 'azerty'
+app.secret_key = "azerty"
+
 
 # == Connexion à la base de données == #
 def get_db():
-    if 'db' not in g:
-        g.db =  pymysql.connect(
+    if "db" not in g:
+        g.db = pymysql.connect(
             host="localhost",
             user="omaraval",
             password="3112",
             database="BDD_omaraval",
-            charset='utf8mb4',
-            cursorclass=pymysql.cursors.DictCursor
+            charset="utf8mb4",
+            cursorclass=pymysql.cursors.DictCursor,
         )
     return g.db
+
 
 # == Déconnexion de la base de données == #
 @app.teardown_appcontext
 def teardown_db(exception):
-    db = g.pop('db', None)
+    db = g.pop("db", None)
     if db is not None:
         db.close()
+
 
 ################
 # == Routes == #
 ################
 
-@app.route('/')
+
+@app.route("/")
 def show_index():
-    return render_template('index.html')
+    return render_template("index.html")
+
 
 # == Routes appartements == #
 
+
 # == Routes consommations == #
-@app.route('/consommations/show')
+@app.route("/consommations/show")
 def show_consommations():
-    # mycursor = get_db().cursor()
-    # sql='''SELECT id_consommation AS id, date_consommation AS date, montant_consommation AS montant, id_locataire AS locataire
-    # FROM consommation
-    # ORDER BY date_consommation;'''
-    # mycursor.execute(sql)
-    # liste_consommations = mycursor.fetchall()
-    return render_template('consommations/show_consommations.html')
+    mycursor = get_db().cursor()
+    sql = """SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, libelle_consommable AS type, num_appartement AS appartement
+    FROM consomme
+    LEFT JOIN consommable ON consomme.id_consommable = consommable.id_consommable
+    ORDER BY date_conso;"""
+    mycursor.execute(sql)
+    liste_consommations = mycursor.fetchall()
+    return render_template("consommations/show_consommations.html", conso=liste_consommations)
+
 
 # == Routes contrats == #
 
@@ -141,5 +149,5 @@ def show_consommations():
 ####################################
 # == Lancement de l'application == #
 ####################################
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=5000)

@@ -1,11 +1,40 @@
-{% extends 'base.html' %}
-{% block activeCons %}active{% endblock %}
-{% block title %}Index{% endblock %}
-
+{% extends 'base.html' %} 
+{% block activeCons %} active {% endblock %} 
+{% block title %} Index {% endblock %} 
 {% block content %}
-    <h1>Consommations</h1>
-    <p> Welcome to the consommation page</p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae explicabo error quae odio ut, rerum blanditiis reprehenderit maxime perspiciatis, tempore quos, accusantium maiores! Soluta ad beatae eligendi quae perspiciatis.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae explicabo error quae odio ut, rerum blanditiis reprehenderit maxime perspiciatis, tempore quos, accusantium maiores! Soluta ad beatae eligendi quae perspiciatis.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis recusandae explicabo error quae odio ut, rerum blanditiis reprehenderit maxime perspiciatis, tempore quos, accusantium maiores! Soluta ad beatae eligendi quae perspiciatis.
+<h3>Consommations</h3>
+<a href="/consommations/add">Ajouter une consommation</a>
+<br /><br />
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>Date</th>
+            <th>Quantité</th>
+            <th>Consommable</th>
+            <th>N° Appartement</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (conso|length) >= 1 %} {% for ligne in conso %}
+        <tr>
+            <td>{{ ligne.id }}</td>
+            <td>{{ ligne.date }}</td>
+            <td>{{ ligne.quantite }}</td>
+            <td>{{ ligne.type }}</td>
+            <td>{{ ligne.appartement }}</td>
+            <td>
+                <a href="/bande-dessinee/edit?id={{ ligne.id }}">Editer</a>&nbsp;
+                <a href="/bande-dessinee/delete?id={{ ligne.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas de consommation</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}

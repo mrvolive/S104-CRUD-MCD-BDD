@@ -69,14 +69,14 @@ CREATE TABLE signatures(
 );
 
 CREATE TABLE consomme(
-    id_consomme INT AUTO_INCREMENT,
-    date_conso DATE,
-    quantite_consomme INT,
-    id_consommable INT NOT NULL,
-    num_appartement INT,
-    PRIMARY KEY(id_consomme),
-    FOREIGN KEY(num_appartement) REFERENCES appartement(num_appartement),
-    FOREIGN KEY(id_consommable) REFERENCES consommable(id_consommable)
+   id_consomme INT AUTO_INCREMENT,
+   date_conso DATE,
+   quantite_consomme INT,
+   id_consommable INT NOT NULL,
+   num_appartement INT,
+   PRIMARY KEY(id_consomme),
+   FOREIGN KEY(num_appartement) REFERENCES appartement(num_appartement),
+   FOREIGN KEY(id_consommable) REFERENCES consommable(id_consommable)
 );
 
 INSERT INTO batiment VALUES (NULL,3);
@@ -102,7 +102,7 @@ INSERT INTO signatures VALUES (1,1);
 INSERT INTO signatures VALUES (2,2);
 INSERT INTO signatures VALUES (3,3);
 INSERT INTO signatures VALUES (4,4);
-INSERT INTO consommable VALUES (NULL,'Eau en l');
+INSERT INTO consommable VALUES (NULL,'Eau en L');
 INSERT INTO consommable VALUES (NULL,'Electricité en kWh');
 INSERT INTO consommable VALUES (NULL,'Déchets en kg');
 -- Consommation d'eau en L

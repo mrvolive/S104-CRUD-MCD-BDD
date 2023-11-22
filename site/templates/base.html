@@ -12,20 +12,6 @@
 
 <body>
     <header>
-        <!-- Navbar -->
-        <!--<nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="/"><b>LOCECO</b></a>
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto align-items-center">
-
-                    </ul>
-                </div>
-            </div>
-        </nav>-->
-        <!-- Navbar --> 
-        
         <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/"><b>LOCECO</b></a>
@@ -35,16 +21,20 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link mx-2 {% block activeApp %}{% endblock %}" href="#!"><i class="fa fa-building pe-2"></i>Appartements</a>
+                                <a class="nav-link mx-2 {% block activeApp %}{% endblock %}" href="#!"><i class="fa fa-building pe-2"></i>Appartements (Valentin V.)</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link mx-2 {% block activCont %}{% endblock %}" href="#!"><i class="fa fa-pencil pe-2"></i>Contrats</a>
+                                <a class="nav-link mx-2 {% block activCont %}{% endblock %}" href="#!"><i class="fa fa-pencil pe-2"></i>Contrats (Yahia K.)</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link mx-2 dropdown-toggle {% block activeCons %}{% endblock %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bolt pe-2"></i>Consommations (Olivier M.)</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/consommations/show">Afficher les consommations (CRUD)</a></li>
+                                    <li><a class="dropdown-item" href="#">Etat : <i class="fa fa-bolt"></i> <i class="fa fa-tint"></i> <i class="fa fa-trash"></i> par appartement et par batiment</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link mx-2 {% block activeCons %}{% endblock %}" href="/consommations/show"><i class="fa fa-bolt pe-2"></i>Consommations</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link mx-2 {% block activeLoc %}{% endblock %}" href="#!"><i class="fa fa-users pe-2"></i>Locataires</a>
+                                <a class="nav-link mx-2 {% block activeLoc %}{% endblock %}" href="#!"><i class="fa fa-users pe-2"></i>Locataires (Sugdenaz E.)</a>
                             </li>
                     </ul>
                 </div>
