@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 {% block activeCons %} active {% endblock %} 
-{% block title %} Index {% endblock %} 
+{% block title %} Consommations {% endblock %}
+
 {% block content %}
 <h3>Consommations</h3>
 <a href="/consommations/add">Ajouter une consommation</a>
@@ -22,12 +23,30 @@
         <tr>
             <td>{{ ligne.id }}</td>
             <td>{{ ligne.date }}</td>
-            <td>{{ ligne.quantite }}</td>
-            <td>{{ ligne.type }}</td>
+            <td>{{ ligne.quantite }} 
+                {% if ligne.type == 'Eau en L' %}
+                <i>L</i>
+                {% elif ligne.type == 'Electricité en kWh' %}
+                <i>Kwh</i>
+                {% elif ligne.type == 'Déchets en kg' %}
+                <i>kg</i>
+                {% endif %}
+            </td>
+            <td>
+                {% if ligne.type == 'Eau en L' %}
+                <i class="fa fa-tint"></i> Eau
+                {% elif ligne.type == 'Electricité en kWh' %}
+                <i class="fa fa-bolt"></i> Electricité
+                {% elif ligne.type == 'Déchets en kg' %}
+                <i class="fa fa-trash"></i> Déchets
+                {% else %}
+                {{ ligne.type }}
+                {% endif %}
+            </td>
             <td>{{ ligne.appartement }}</td>
             <td>
-                <a href="/bande-dessinee/edit?id={{ ligne.id }}">Editer</a>&nbsp;
-                <a href="/bande-dessinee/delete?id={{ ligne.id }}">Supprimer</a>
+                <a href="/consommations/edit?id={{ ligne.id }}">Editer</a>&nbsp;
+                <a href="/consommations/delete?id={{ ligne.id }}">Supprimer</a>
             </td>
         </tr>
         {% endfor %} {% else %}

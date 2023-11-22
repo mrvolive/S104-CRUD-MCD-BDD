@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire d'Étudiant</title>
-    <!-- Inclure Bootstrap 5 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-4">
-        <h1>Formulaire d'Étudiant</h1>
-        <form action="/etudiant/edit" method="post">
-            <!-- Champs pour saisir les informations de l'étudiant -->
-            <input type="hidden" name="id" value="{{ etudiant.id }}" >
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom de l'étudiant :</label>
-                <input type="text" class="form-control" id="nom" placeholder="Entrez le nom de l'étudiant" required value="{{ etudiant.nom }}" name="nom">
-            </div>
-            {{ etudiant.groupe }}
-            <div class="mb-3">
-                <label for="groupe" class="form-label">Groupe de l'étudiant :</label>
-                <select class="form-select" id="groupe" required name="groupe">
-                    <option value="A1">A1</option>
-                    <option value="A2">A2</option>
-                    <option value="B1">B1</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
-        </form>
-    </div>
+{% extends 'base.html' %} 
+{% block activeCons %} active {% endblock %} 
+{% block title %} Modifier une consommation {% endblock %}
 
-    <!-- Inclure Bootstrap 5 JS (pour les fonctionnalités supplémentaires) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% block content %}
+<h2>Modifier une consommation</h2>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+<form method="post" action="/bande-dessinee/edit">
+  <fieldset>
+    <legend> Modifier une consommation</legend>
+    <input type="hidden" name="id" size="18" value="{{ bandeDessinee.id }}" id="id">
+    <label for="serieBD">Série de la BD</label><br>
+    <input required type="text" name="serieBD" size="18" value="{{ bandeDessinee.serieBD }}" id="serieBD"><br>
+    <label for="auteur_id">auteur_id</label><br>
+    <select name="auteur_id" id="auteur_id" required>
+        {% for auteur in auteurs %}
+        <option value="{{ auteur.id }}" {% if bandeDessinee.auteur_id is defined and auteur.id==bandeDessinee.auteur_id %}selected{% endif %}>
+        {{ auteur.nomAuteur }} </option>
+        {% endfor %}
+    </select><br>
+    <label for="titre">Titre</label><br>
+    <input required type="text" name="titre" size="18" value="{{ bandeDessinee.titre }}" id="titre"><br>
+    <label for="tome">Tome</label><br>
+    <input required type="text" name="tome" size="18" value="{{ bandeDessinee.tome }}" id="tome"><br>
+    <label for="dateParution">Date de Parution</label><br>
+    <input required type="date" name="dateParution" size="18" value="{{ bandeDessinee.dateParution }}" id="dateParution"><br>
+    <label for="prix">Prix</label><br>
+    <input required type="text" name="prix" size="18" value="{{ bandeDessinee.prix }}" id="prix"><br>
+    <label for="image">Image</label><br>
+    <input type="file" accept="image/png, image/jpeg" name="image" size="18" value="{{ bandeDessinee.image }}" id="image"><br><br>
+    <input type="submit" value="Modifier" name="Modifier">
+  </fieldset>
+</form>
+{% endblock %}

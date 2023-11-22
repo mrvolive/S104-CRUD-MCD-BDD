@@ -51,12 +51,42 @@ def show_consommations():
     mycursor = get_db().cursor()
     sql = """SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, libelle_consommable AS type, num_appartement AS appartement
     FROM consomme
-    LEFT JOIN consommable ON consomme.id_consommable = consommable.id_consommable
+    INNER JOIN consommable ON consomme.id_consommable = consommable.id_consommable
     ORDER BY date_conso;"""
     mycursor.execute(sql)
     liste_consommations = mycursor.fetchall()
     return render_template("consommations/show_consommations.html", conso=liste_consommations)
 
+@app.route('/consommations/delete')
+def delete_consommations():
+    print('''suppression d'une consommation''')
+    id=request.args.get('id',0)
+    print(id)
+    mycursor = get_db().cursor()
+    tuple_param=(id)
+    sql="DELETE FROM consomme WHERE id_consomme=%s;"
+    mycursor.execute(sql,tuple_param)
+
+    get_db().commit()
+    print(request.args)
+    print(request.args.get('id'))
+    id=request.args.get('id',0)
+    return redirect('/consommations/show')
+
+@app.route('/etudiant/edit', methods=['GET'])
+def edit_etudiant():
+    print('''affichage du formulaire pour modifier un étudiant''')
+    print(request.args)
+    print(request.args.get('id'))
+    id=request.args.get('id')
+    mycursor = get_db().cursor()
+    sql=''' SELECT id_etudiant AS id, nom_etudiant AS nom, groupe_etudiant AS groupe
+    FROM etudiant
+    WHERE id_etudiant=%s;'''
+    tuple_param=(id)
+    mycursor.execute(sql,tuple_param)
+    etudiant = mycursor.fetchone()
+    return render_template('etudiant/edit_etudiant.html', etudiant=etudiant)
 
 # == Routes contrats == #
 
