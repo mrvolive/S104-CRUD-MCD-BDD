@@ -44,8 +44,12 @@ def show_index():
 
 # == Routes appartements == #
 
-
+##############################    
 # == Routes consommations == #
+##############################
+
+# == CRUD consommations == #
+
 @app.route("/consommations/show")
 def show_consommations():
     mycursor = get_db().cursor()
@@ -152,6 +156,45 @@ def valid_add_consommation():
     mycursor.execute(sql,tuple_param)
     get_db().commit()
     return redirect('/consommations/show')
+
+# == Etat consommations == #
+
+@app.route('/consommations/etat')
+def show_etat_consommation():
+    mycursor = get_db().cursor()
+    sql = '''SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, libelle_consommable AS type, num_appartement AS appartement
+    FROM consomme
+    INNER JOIN consommable ON consomme.id_consommable = consommable.id_consommable
+    ORDER BY date_conso DESC;'''
+    mycursor.execute(sql)
+    liste_consommations = mycursor.fetchall()
+    
+    sql = ''' SELECT ROUND(AVG(quantite_consomme),2) as conso_moyenne_eau, appartement.num_appartement as appartement
+    FROM consomme
+    INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+    WHERE consomme.id_consommable = 1
+    GROUP BY appartement.num_appartement;'''
+    mycursor.execute(sql)
+    conso_moy_eau = mycursor.fetchall()
+    
+    sql = '''SELECT COUNT(appartement.num_appartement) as 'over_elec' , appartement.num_appartement as 'appartement'
+    FROM consomme
+    INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+    WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300
+    GROUP BY appartement.num_appartement;'''
+    mycursor.execute(sql)
+    over_conso_elec = mycursor.fetchall()
+    
+    sql = '''SELECT COUNT(appartement.num_appartement) as 'over_elec' , appartement.num_appartement as 'appartement'
+    FROM consomme
+    INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+    WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300
+    GROUP BY appartement.num_appartement;'''
+    mycursor.execute(sql)
+    over_conso_elec = mycursor.fetchall()
+    
+    
+    return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec)
 
 # == Routes contrats == #
 

@@ -167,8 +167,7 @@ GROUP BY appartement.num_appartement;
 SELECT ROUND(AVG(montant_loyer),2) as 'Loyer Moyen en €/mois'
 FROM contrat;
 
-SELECT ROUND(AVG(quantite_consomme),2) as conso_eau_moyenne,
-        appartement.num_appartement as appartement_n°
+SELECT ROUND(AVG(quantite_consomme),2) as conso_eau_moyenne, appartement.num_appartement as appartement_n°
 FROM consomme
 INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
 WHERE consomme.id_consommable = 1
