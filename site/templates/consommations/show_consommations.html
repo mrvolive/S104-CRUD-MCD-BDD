@@ -15,6 +15,7 @@
             <th>Quantité</th>
             <th>Consommable</th>
             <th>N° Appartement</th>
+            <th>N° Batiment</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -44,6 +45,7 @@
                 {% endif %}
             </td>
             <td>{{ ligne.appartement }}</td>
+            <td>{{ ligne.batiment }}</td>
             <td>
                 <a href="/consommations/edit?id={{ ligne.id }}">Editer</a>&nbsp;
                 <a href="/consommations/delete?id={{ ligne.id }}">Supprimer</a>

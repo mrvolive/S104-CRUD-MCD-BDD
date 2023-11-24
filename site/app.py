@@ -53,10 +53,11 @@ def show_index():
 @app.route("/consommations/show")
 def show_consommations():
     mycursor = get_db().cursor()
-    sql ='''SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, libelle_consommable AS type, num_appartement AS appartement
+    sql ='''SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, libelle_consommable AS type, consomme.num_appartement AS appartement, appartement.num_batiment AS batiment
     FROM consomme
     INNER JOIN consommable ON consomme.id_consommable = consommable.id_consommable
-    ORDER BY date_conso DESC;'''
+    INNER JOIN appartement ON consomme.num_appartement = appartement.num_appartement
+    ORDER BY date_conso DESC, consomme.num_appartement, consommable.id_consommable ASC;'''
     mycursor.execute(sql)
     liste_consommations = mycursor.fetchall()
     return render_template("consommations/show_consommations.html", conso=liste_consommations)
@@ -172,7 +173,7 @@ def show_etat_consommation():
     sql = ''' SELECT ROUND(AVG(quantite_consomme),2) as conso_moyenne_eau, appartement.num_appartement as appartement
     FROM consomme
     INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
-    WHERE consomme.id_consommable = 1
+    WHERE consomme.id_consommable = 1 AND year(consomme.date_conso) = 2023
     GROUP BY appartement.num_appartement;'''
     mycursor.execute(sql)
     conso_moy_eau = mycursor.fetchall()
@@ -180,21 +181,22 @@ def show_etat_consommation():
     sql = '''SELECT COUNT(appartement.num_appartement) as 'over_elec' , appartement.num_appartement as 'appartement'
     FROM consomme
     INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
-    WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300
+    WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300 AND year(consomme.date_conso) = 2023
     GROUP BY appartement.num_appartement;'''
     mycursor.execute(sql)
     over_conso_elec = mycursor.fetchall()
     
-    sql = '''SELECT COUNT(appartement.num_appartement) as 'over_elec' , appartement.num_appartement as 'appartement'
-    FROM consomme
-    INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
-    WHERE consomme.id_consommable = 2 AND consomme.quantite_consomme > 300
-    GROUP BY appartement.num_appartement;'''
+    sql = '''SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement AS 'appartement',MIN(consomme.quantite_consomme) AS conso_elec_mois_min
+    FROM appartement
+    INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
+    INNER JOIN consomme on appartement.num_appartement = consomme.num_appartement
+    WHERE consomme.quantite_consomme = (SELECT MIN(quantite_consomme) FROM consomme WHERE id_consommable = 2) AND consomme.id_consommable = 2
+    GROUP BY locataire.nom_locataire, locataire.prenom_locataire;'''
     mycursor.execute(sql)
-    over_conso_elec = mycursor.fetchall()
+    min_conso_elec = mycursor.fetchall()
     
     
-    return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec)
+    return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec, min_conso_elec=min_conso_elec)
 
 # == Routes contrats == #
 
