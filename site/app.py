@@ -43,6 +43,66 @@ def show_index():
 
 
 # == Routes appartements == #
+@app.route("/appartements/show")
+def show_appartements():
+    mycursor = get_db().cursor()
+    sql = '''SELECT num_appartement AS id, libelle_appartement AS libelle, taille_appartement AS taille, loyer_appartement AS loyer, nom_etudiant AS locataire
+    FROM appartement
+    LEFT JOIN etudiant ON appartement.id_etudiant = etudiant.id_etudiant
+    ORDER BY num_appartement;'''
+    mycursor.execute(sql)
+    liste_appartements = mycursor.fetchall()
+    return render_template("appartements/show_appartements.html", appartements=liste_appartements)
+
+@app.route('/appartements/delete')
+def delete_appartements():
+    print('''suppression d'un appartement''')
+    id=request.args.get('id',0)
+    print(id)
+    mycursor = get_db().cursor()
+    tuple_param=(id)
+    sql="DELETE FROM appartement WHERE num_appartement=%s;"
+    mycursor.execute(sql,tuple_param)
+
+    get_db().commit()
+    print(request.args)
+    print(request.args.get('id'))
+    id=request.args.get('id',0)
+    return redirect('/appartements/show')
+
+@app.route('/appartements/edit', methods=['GET'])
+def edit_appartement():
+    print('''affichage du formulaire pour modifier un appartement''')
+    print(request.args)
+    print(request.args.get('id'))
+    id=request.args.get('id')
+    mycursor = get_db().cursor()
+    sql = '''SELECT num_appartement AS id, superficie_appartement AS superficie, etage_appartement AS etage, libelle_type_appart AS type_appartement , num_batiment AS bâtiment
+    FROM appartement
+    INNER JOIN typeAppartement ON appartement.id_type_appartement = typeAppartement.id_type_appart
+    WHERE num_appartement=%s;'''
+    tuple_param=(id)
+    mycursor.execute(sql,tuple_param)
+    appartement = mycursor.fetchone()
+    return render_template('appartements/edit_appartement.html', appartement=appartement)
+
+@app.route('/appartements/edit', methods=['POST'])
+def valid_edit_appartement():
+    print('''modification de l'appartement dans le tableau''')
+    id = request.form.get('id')
+    superficie = request.form.get('superficie')
+    etage = request.form.get('étage')
+    type_appart = request.form.get('type_appart')
+    batiment = request.form.get('batiment')
+    message = 'superficie:' + superficie + ' - étage:' + etage + ' - type d\'appartement:' + type_appart + ' - bâtiment:' + batiment + ' - pour l appartement n°:' + id
+    print(message)
+    mycursor = get_db().cursor()
+    tuple_param=(superficie,etage,type_appart,batiment,id)
+    sql="UPDATE appartement SET superficie_appartement = %s, etage_appartement= %s, id_type_appart= %s, num_batiment= %s WHERE num_appartement=%s;"
+    mycursor.execute(sql,tuple_param)
+    get_db().commit()
+    return redirect('/appartements/show')
+
 
 ##############################    
 # == Routes consommations == #
