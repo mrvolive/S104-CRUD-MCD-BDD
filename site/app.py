@@ -259,6 +259,114 @@ def show_etat_consommation():
     return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec, min_conso_elec=min_conso_elec)
 
 # == Routes contrats == #
+@app.route("/contrats/show")
+def show_contrats():
+    mycursor = get_db().cursor()
+    sql = '''SELECT id_contrat AS id, montant_loyer AS montant, date_signature AS datesignature, date_debut_contrat AS datedebut, date_fin_contrat AS datefin, nb_locataires AS nombrelocataire, contrat.num_appartement AS appartement
+    FROM contrat
+    INNER JOIN appartement ON contrat.num_appartement = appartement.num_appartement
+    ORDER BY date_signature ASC;'''
+    mycursor.execute(sql)
+    liste_contrats = mycursor.fetchall()
+    return render_template("contrats/show_contrats.html", contra=liste_contrats)
+
+@app.route('/contrats/delete')
+def delete_contrats():
+    print('''suppression d'un contrat''')
+    id = request.args.get('id', 0)
+    print(id)
+    mycursor = get_db().cursor()
+    tuple_param = id
+    query = "SELECT COUNT(*) AS signe FROM signatures WHERE id_contrat = %s " #compter AS SIGN
+    mycursor.execute(query,tuple_param)
+    sign = mycursor.fetchone().get("signe")
+    print(sign)
+    if sign != 0:
+        message = u'Suppression impossible ! (car contrainte clé étrangère)'
+        print(message)
+        flash(message, 'alert-success') #soucis
+    else :
+        sql = "DELETE FROM contrat WHERE id_contrat=%s;"
+        mycursor.execute(sql, tuple_param)
+        get_db().commit()
+    print(request.args)
+    print(request.args.get('id'))
+    id = request.args.get('id', 0)
+    return redirect('/contrats/show')
+
+
+@app.route('/contrats/edit', methods=['GET'])
+def edit_contrat():
+    print('''affichage du formulaire pour modifier un contrat''')
+    print(request.args)
+    print(request.args.get('id'))
+    id = request.args.get('id')
+    mycursor = get_db().cursor()
+    sql = '''SELECT id_contrat AS id, montant_loyer AS montant, date_signature AS datesignature, date_debut_contrat AS datedebut, date_fin_contrat AS datefin, nb_locataires AS nombrelocataire, num_appartement AS appartement
+    FROM contrat
+    WHERE id_contrat=%s;'''
+    tuple_param = (id)
+    mycursor.execute(sql, tuple_param)
+    contrat = mycursor.fetchone()
+    sql = '''SELECT num_appartement AS appartement, superficie_appartement AS taille
+    FROM appartement'''
+    mycursor.execute(sql)
+    appart = mycursor.fetchall()
+    return render_template('contrats/edit_contrat.html', contrat=contrat, appart=appart)
+
+
+@app.route('/contrats/edit', methods=['POST'])
+def valid_edit_contrat():
+    print('''modification d'un contrat dans le tableau''')
+    id = request.form.get('id')
+    montant = request.form.get('montant')
+    datesignature= request.form.get('datesignature')
+    datedebut = request.form.get('datedebut')
+    datefin = request.form.get('datefin')
+    nombrelocataire = request.form.get('nombrelocataire')
+    appartement = request.form.get('appartement')
+    message = 'montant:' + montant + ' - date de signature:' + datesignature + ' - date de debut:' + datedebut + '- date de fin:' + datefin + 'nombre de locataire' + nombrelocataire +'Numero d appartement' + str(appartement) +' - pour le contrat d identifiant:' + id
+    print(message)
+    mycursor = get_db().cursor()
+    tuple_param = (montant, datesignature, datedebut, datefin, nombrelocataire, appartement, id)
+    sql = "UPDATE contrat SET montant_loyer = %s, date_signature= %s, date_debut_contrat = %s, date_fin_contrat = %s,nb_locataires =%s, num_appartement= %s WHERE id_contrat=%s;"
+    mycursor.execute(sql, tuple_param)
+    get_db().commit()
+    return redirect('/contrats/show')
+
+
+@app.route('/contrats/add', methods=['GET'])
+def add_contrat():
+    print('''affichage du formulaire pour saisir un contrat''')
+    mycursor = get_db().cursor()
+    sql = '''SELECT id_contrat AS id, montant_loyer AS montant, date_signature AS datesignature, date_debut_contrat AS datedebut, date_fin_contrat AS datefin, nb_locataires AS nombrelocataire, num_appartement AS appartement
+    FROM contrat'''
+    mycursor.execute(sql)
+    contrat = mycursor.fetchall()
+    sql = '''SELECT num_appartement AS num_app
+    FROM appartement'''
+    mycursor.execute(sql)
+    appart = mycursor.fetchall()
+    return render_template('contrats/add_contrat.html', contrat=contrat,appart=appart)
+
+@app.route('/contrats/add', methods=['POST'])
+def valid_add_contrat():
+    print('''ajout du contratdans le tableau''')
+    montant = request.form.get('montant')
+    datesignature = request.form.get('datesignature')
+    datedebut = request.form.get('datedebut')
+    datefin = request.form.get('datefin')
+    nombrelocataire = request.form.get('nombrelocataire')
+    appartement = request.form.get('appartement')
+    message = 'montant:' + montant + ' - date de signature:' + datesignature + ' - date de debut:' + datedebut + '- date de fin:' + datefin + 'nombre de locataire' + nombrelocataire + 'Numero d appartement' + appartement
+    print(message)
+    mycursor = get_db().cursor()
+    tuple_param=(montant,datesignature,datedebut, datefin, nombrelocataire,appartement)
+    sql="INSERT INTO contrat(id_contrat, montant_loyer,date_signature, date_debut_contrat, date_fin_contrat, nb_locataires, num_appartement) VALUES (NULL, %s, %s, %s, %s, %s,%s);"
+    mycursor.execute(sql, tuple_param)
+    get_db().commit()
+    return redirect('/contrats/show')
+
 
 # == Routes locataires == #
 
