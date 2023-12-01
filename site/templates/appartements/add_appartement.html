@@ -5,8 +5,32 @@
 {% block content %}
     <div class="container mt-4">
         <h1>Ajouter un appartement</h1>
-        <form action="/consommations/add" method="post">
-            <!-- Champs pour saisir les informations du nouvel appartement -->
+        <form action="/appartements/add" method="post">
+            <fieldset>
+                <input type="hidden" name="id" size="18" value="" id="id">
 
+                <label for="superficie">Superficie de l'appartement</label>
+                <input required type="number" name="superficie" size="18" value="" id="superficie">
 
+                <label for="etage">Etage de l'appartement</label>
+                <input required type="number" name="etage" size="18" value="" id="etage">
+
+                <label for="type_appartement">Type d'appartement</label>
+                <select name="type_appartement" id="type_appartement" required>
+                    {% for type in typeAppart %}
+                        <option value="{{ type.id }}">{{ type.type_appart }}</option>
+                    {% endfor %}
+                    </select><br>
+
+                <label for="batiment">Bâtiment n°</label>
+                <select name="batiment" id="batiment" required>
+                    {% for bat in bat %}
+                        <option value="{{ bat.num_bat }}">{{ bat.num_bat }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="submit" value="Modifier" name="Modifier">
+            </fieldset>
+        </form>
+    </div>
 {% endblock %}

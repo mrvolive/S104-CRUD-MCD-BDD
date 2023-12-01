@@ -7,8 +7,7 @@ import pymysql.cursors
 
 # == Configuration == #
 app = Flask(__name__)
-app.secret_key = "azerty"
-
+app.secret_key = 'azerty'
 
 # == Connexion à la base de données == #
 def get_db():
@@ -46,13 +45,13 @@ def show_index():
 @app.route("/appartements/show")
 def show_appartements():
     mycursor = get_db().cursor()
-    sql = '''SELECT num_appartement AS id, libelle_appartement AS libelle, taille_appartement AS taille, loyer_appartement AS loyer, nom_etudiant AS locataire
+    sql = '''SELECT num_appartement AS id, superficie_appartement AS superficie, etage_appartement AS etage, typeAppartement.libelle_type_appart AS type_appartement, num_batiment AS bâtiment
     FROM appartement
-    LEFT JOIN etudiant ON appartement.id_etudiant = etudiant.id_etudiant
+    INNER JOIN typeAppartement ON appartement.id_type_appart = typeAppartement.id_type_appart
     ORDER BY num_appartement;'''
     mycursor.execute(sql)
     liste_appartements = mycursor.fetchall()
-    return render_template("appartements/show_appartements.html", appartements=liste_appartements)
+    return render_template("appartements/show_appartement.html", apparts=liste_appartements)
 
 @app.route('/appartements/delete')
 def delete_appartements():
@@ -61,10 +60,18 @@ def delete_appartements():
     print(id)
     mycursor = get_db().cursor()
     tuple_param=(id)
-    sql="DELETE FROM appartement WHERE num_appartement=%s;"
-    mycursor.execute(sql,tuple_param)
-
-    get_db().commit()
+    query = "SELECT COUNT(*) AS occ FROM locataire WHERE num_appartement = %s" #
+    mycursor.execute(query, tuple_param)
+    count = mycursor.fetchone().get('occ')
+    print(count)
+    if count != 0:
+        message = u'Suppression impossible ! (car contrainte clé étrangère)'
+        print(message)
+        flash(message, 'alert-warning')
+    else:
+        sql="DELETE FROM appartement WHERE num_appartement=%s;"
+        mycursor.execute(sql,tuple_param)
+        get_db().commit()
     print(request.args)
     print(request.args.get('id'))
     id=request.args.get('id',0)
@@ -77,24 +84,31 @@ def edit_appartement():
     print(request.args.get('id'))
     id=request.args.get('id')
     mycursor = get_db().cursor()
-    sql = '''SELECT num_appartement AS id, superficie_appartement AS superficie, etage_appartement AS etage, libelle_type_appart AS type_appartement , num_batiment AS bâtiment
-    FROM appartement
-    INNER JOIN typeAppartement ON appartement.id_type_appartement = typeAppartement.id_type_appart
-    WHERE num_appartement=%s;'''
+    sql = '''SELECT num_appartement AS id, superficie_appartement AS superficie, etage_appartement AS etage, id_type_appart AS type_appartement , num_batiment AS batiment
+    FROM appartement WHERE num_appartement=%s;'''
     tuple_param=(id)
     mycursor.execute(sql,tuple_param)
     appartement = mycursor.fetchone()
-    return render_template('appartements/edit_appartement.html', appartement=appartement)
+
+    sql = '''SELECT id_type_appart AS id, libelle_type_appart AS type_appart FROM typeAppartement'''
+    mycursor.execute(sql)
+    typeAppartement = mycursor.fetchall()
+
+    sql = '''SELECT num_batiment AS num_bat
+        FROM batiment'''
+    mycursor.execute(sql)
+    batiment = mycursor.fetchall()
+    return render_template('appartements/edit_appartement.html', appart=appartement, typeAppart=typeAppartement, bat=batiment)
 
 @app.route('/appartements/edit', methods=['POST'])
 def valid_edit_appartement():
     print('''modification de l'appartement dans le tableau''')
     id = request.form.get('id')
     superficie = request.form.get('superficie')
-    etage = request.form.get('étage')
-    type_appart = request.form.get('type_appart')
+    etage = request.form.get('etage')
+    type_appart = request.form.get('type_appartement')
     batiment = request.form.get('batiment')
-    message = 'superficie:' + superficie + ' - étage:' + etage + ' - type d\'appartement:' + type_appart + ' - bâtiment:' + batiment + ' - pour l appartement n°:' + id
+    message = 'superficie:' + superficie + ' - étage:' + etage + ' - type appartement:' + type_appart + ' - bâtiment:' + batiment + ' - pour l appartement numéro :' + id
     print(message)
     mycursor = get_db().cursor()
     tuple_param=(superficie,etage,type_appart,batiment,id)
@@ -102,6 +116,46 @@ def valid_edit_appartement():
     mycursor.execute(sql,tuple_param)
     get_db().commit()
     return redirect('/appartements/show')
+
+
+@app.route('/appartements/add', methods=['GET'])
+def add_appartement():
+    print('''affichage du formulaire pour ajouter un appartement''')
+
+    mycursor = get_db().cursor()
+    sql = '''SELECT num_appartement AS id, superficie_appartement AS superficie, etage_appartement AS etage, id_type_appart AS type_appartement , num_batiment AS batiment
+    FROM appartement'''
+    mycursor.execute(sql)
+    appartement = mycursor.fetchall()
+
+    sql = '''SELECT id_type_appart AS id, libelle_type_appart AS type_appart FROM typeAppartement'''
+    mycursor.execute(sql)
+    typeAppartement = mycursor.fetchall()
+
+    sql = '''SELECT num_batiment AS num_bat
+        FROM batiment'''
+    mycursor.execute(sql)
+    batiment = mycursor.fetchall()
+    return render_template('appartements/add_appartement.html', appart=appartement, typeAppart=typeAppartement, bat=batiment)
+
+
+@app.route('/appartements/add', methods=['POST'])
+def valid_add_appartement():
+    print('''ajout du consommable dans le tableau''')
+    superficie = request.form.get('superficie')
+    etage = request.form.get('etage')
+    type_appart = request.form.get('type_appartement')
+    batiment = request.form.get('batiment')
+    message = 'superficie:' + superficie + ' - étage:' + etage + ' - type appartement:' + type_appart + ' - bâtiment:' + batiment +''
+    print(message)
+    mycursor = get_db().cursor()
+    tuple_param = (superficie, etage, type_appart, batiment)
+    sql = "INSERT INTO appartement(num_appartement, superficie_appartement, etage_appartement, id_type_appart, num_batiment) VALUES (NULL, %s, %s, %s, %s);"
+    mycursor.execute(sql, tuple_param)
+    get_db().commit()
+    return redirect('/appartements/show')
+
+
 
 
 ##############################    

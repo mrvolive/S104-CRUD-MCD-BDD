@@ -1,47 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon"  href="{{ url_for('static', filename='iconeweb.ico') }}" />
+{% extends 'base.html' %}
+{% block activeApp %} active {% endblock %}
+{% block title %} Appartements {% endblock %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='mes_styles.css') }}" >
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" >
-    <title>Etudiants</title>
-</head>
-<body>
+{% block content %}
+<h3>Appartements</h3>
+<a href="/appartements/add">Ajouter un appartement</a>
+<br /><br />
 
-{#{{ etudiants }}#}
-<h1>listes des étudiants<img src="{{ url_for('static', filename='image_iut.jpeg') }}" alt="image iut"  /></h1>
-
-<a href="/etudiant/add" >ajouter un étudiant</a>
-
-{% if etudiants | length >= 1 %}
-    <table>
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
-            <th>id</th><th>nom</th><th>groupe</th>
+            <th>num_appart</th>
+            <th>Superficie en m²</th>
+            <th>Etage</th>
+            <th>Type d'appartement</th>
+            <th>N° Batiment</th>
+            <th>Actions</th>
         </tr>
-        {% for etudiant in etudiants %}
-            <tr>
-                {# commentaires : autre notation possible, on affiche un element du dictionnaire
-                <td>{{ etudiant['id'] }}</td><td>{{ etudiant['nom'] }}</td><td>{{ etudiant['groupe'] }}</td>
-            #}
-                <td>{{ etudiant.id }}</td>
-                <td>{{ etudiant.nom }}</td>
-                <td>{{ etudiant.groupe }}</td>
-                <td>
-                    <a href="/etudiant/edit?id={{ etudiant.id }}">editer</a>&nbsp;
-                    <a href="/etudiant/delete?id={{ etudiant.id }}" >supprimer</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-{% else %}
-    <h2> la liste des étudiants est vide</h2>
-{% endif %}
-
-<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>    
-</body>
-</html>
+    </thead>
+    <tbody>
+        {% if (apparts|length) >= 1 %} {% for ligne in apparts %}
+            <td>{{ ligne.id }}</td>
+            <td>{{ ligne.superficie }}</td>
+            <td>{{ ligne.etage }}</td>
+            <td>{{ ligne.type_appartement }}</td>
+            <td>{{ ligne.bâtiment }}</td>
+            <td>
+                <a href="/appartements/edit?id={{ ligne.id }}">Modifier</a>
+                <a href="/appartements/delete?id={{ ligne.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas d'appartements</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

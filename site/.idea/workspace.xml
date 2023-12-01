@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/appartements/add_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/add_appartement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/appartements/edit_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/edit_appartement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/appartements/show_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/show_appartement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valen/OneDrive/Documents/Cours/S1/saé/S1.03-04/sae104/site&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valen/OneDrive/Documents/Cours/S1/DevInterfacesWeb/flaskProject_sujet10_Valentin_Viret-Jacquot_S1A1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -114,6 +117,15 @@
       <workItem from="1700749806604" duration="204000" />
       <workItem from="1700750154632" duration="640000" />
       <workItem from="1700838441200" duration="3102000" />
+      <workItem from="1701160900385" duration="3093000" />
+      <workItem from="1701264047373" duration="5398000" />
+      <workItem from="1701335580237" duration="4425000" />
+      <workItem from="1701340228875" duration="61000" />
+      <workItem from="1701340624675" duration="1790000" />
+      <workItem from="1701358719440" duration="1235000" />
+      <workItem from="1701439655666" duration="1092000" />
+      <workItem from="1701441067551" duration="108000" />
+      <workItem from="1701441187308" duration="196000" />
     </task>
     <servers />
   </component>
@@ -142,17 +154,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>198</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/site$site.coverage" NAME="site Coverage Results" MODIFIED="1700562145898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
