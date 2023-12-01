@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block activeCons %} active {% endblock %} 
+{% block title %} Consommations {% endblock %}
+
+{% block content %}
+<h4>Nombre de mois où la production de déchêt à excédé <i>{{ quantite }} kg </i> en 2023</h4>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Appartement</th>
+            <th>Mois </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (over_conso_trash|length) >= 1 %} {% for ligne in over_conso_trash %}
+        <tr>
+            <td>{{ ligne.appartement }}</td>
+            <td>{{ ligne.over_trash }} mois </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Aucun appartement n'a dépassé cette valeur</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+
+{% endblock %}

@@ -284,7 +284,7 @@ def show_etat_consommation():
     mycursor.execute(sql)
     liste_consommations = mycursor.fetchall()
     
-    sql = ''' SELECT ROUND(AVG(quantite_consomme),2) as conso_moyenne_eau, appartement.num_appartement as appartement
+    sql = '''SELECT ROUND(AVG(quantite_consomme),2) as conso_moyenne_eau, appartement.num_appartement as appartement
     FROM consomme
     INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
     WHERE consomme.id_consommable = 1 AND year(consomme.date_conso) = 2023
@@ -309,8 +309,28 @@ def show_etat_consommation():
     mycursor.execute(sql)
     min_conso_elec = mycursor.fetchall()
     
-    
     return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec, min_conso_elec=min_conso_elec)
+
+## Etat programmé ##
+
+@app.route("/consommations/etatprog", methods=['GET'])
+def show_filtre_dechet():
+    return render_template('consommations/etatprog_consommation.html')
+    
+
+@app.route("/consommations/etatprog", methods=['POST'])
+def valid_filtre_dechet():
+    mycursor = get_db().cursor()
+    quantite=request.form.get('quantite')
+    tuple_param = (quantite)
+    sql = '''SELECT COUNT(appartement.num_appartement) as 'over_trash' , appartement.num_appartement as 'appartement'
+    FROM consomme
+    INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
+    WHERE consomme.id_consommable = 3 AND consomme.quantite_consomme > %s AND year(consomme.date_conso) = 2023
+    GROUP BY appartement.num_appartement;'''
+    mycursor.execute(sql,tuple_param)
+    over_conso_trash = mycursor.fetchall()
+    return render_template('consommations/etatdec_consommation.html', over_conso_trash=over_conso_trash, quantite=quantite)
 
 # == Routes contrats == #
 @app.route("/contrats/show")

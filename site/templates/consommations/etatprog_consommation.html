@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block activeCons %} active {% endblock %} 
+{% block title %} Consommations {% endblock %}
+
+{% block content %}
+
+<form method="post" action="/consommations/etatprog">
+    <fieldset>
+        <legend>Choisissez une valeur de déchets pour voir quels appartement l'ont dépassé en 2023 et combien de fois.</legend>
+        <label for="quantite">Quantité de déchet produit</label><br>
+        <input required type="quantite" name="quantite" size="18" value=""><br>
+        <br><br>
+        <input type="submit" value="Valider" name="Valider">
+    </fieldset>
+</form>
+
+
+{% endblock %}
