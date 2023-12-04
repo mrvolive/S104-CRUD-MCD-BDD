@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block activeLoc %} active {% endblock %}
+{% block title %} locataires {% endblock %}
+
+{% block content %}
+    <h3>locataires</h3>
+    <a href="/locataires/add">Ajouter un locataire</a>
+    <br/><br/>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>prénom</th>
+            <th>nom</th>
+            <th>âge</th>
+            <th>téléphone</th>
+            <th>mail</th>
+            <th>appartement</th>
+            <th> Modifier </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if (locataire|length) >= 1 %} {% for ligne in locataire %}
+            <tr>
+                <td>{{ ligne.id_locataire }}</td>
+                <td>{{ ligne.prenom_locataire }}</td>
+                <td>{{ ligne.nom_locataire }}</td>
+                <td>{{ ligne.age_locataire }}</td>
+                <td>{{ ligne.telephone_locataire }}</td>
+                <td>{{ ligne.mail_locataire }}</td>
+                <td>{{ ligne.num_appartement }}</td>
+                <td>
+                    <a href="/locataires/edit?id={{ ligne.id_locataire }}">Editer</a>&nbsp;
+                    <a href="/locataires/delete?id={{ ligne.id_locataire }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %} {% else %}
+            <tr>
+                <td>Il n'y a pas de locataire</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
