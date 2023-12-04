@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block activeApp %} active {% endblock %}
+{% block title %} Appartements {% endblock %}
+
+{% block content %}
+<h3>Appartements</h3>
+<br /><br />
+
+<h4> Superficie moyenne des appartements </h4>
+
+La superficie moyenne de tous les appartements est de <b>{{ moyenne_superficie[0].superficie_moyenne }}</b> m².
+<br /><br />
+
+<h4> Nombre d'appartements et superficie moyenne par bâtiment</h4>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Bâtiment</th>
+                <th>Nombre d'appartements</th>
+                <th>Superficie moyenne</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for ligne in nb_appart %}
+            <tr>
+                <td>{{ ligne.num_batiment }}</td>
+                <td>{{ ligne.nb_appart }}</td>
+                <td>{{ ligne.superficie_moyenne }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

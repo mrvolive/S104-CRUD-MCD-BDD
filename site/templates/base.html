@@ -26,17 +26,17 @@
                                     <a class="nav-link mx-2 dropdown-toggle {% block activeApp %}{% endblock %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-home pe-2"></i>Appartements (Valentin V-J.)</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="/appartements/show">Afficher les appartements (CRUD)</a></li>
-                                        <li><a class="dropdown-item" href="/appartements/etat">Etat :</a></li>
+                                        <li><a class="dropdown-item" href="/appartements/etat">Etat : superficie moyenne totale et par bâtiment</a></li>
                                     </ul>
                                 </li>
                             <!-- Déroulant Contrats Yahia -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link mx-2 dropdown-toggle {% block activeCont %}{% endblock %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-pencil pe-2"></i>Contrats (Yahia K.)</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/contrats/show">Afficher les contrats (CRUD)</a></li>
-                                <li><a class="dropdown-item" href="#">Etat : par appartement et locataires</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/contrats/show">Afficher les contrats (CRUD)</a></li>
+                                    <li><a class="dropdown-item" href="#">Etat : par appartement et locataires</a></li>
+                                </ul>
+                            </li>
                             <!-- Déroulant Consommation Olivier -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link mx-2 dropdown-toggle {% block activeCons %}{% endblock %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bolt pe-2"></i>Consommations (Olivier M.)</a>
@@ -54,12 +54,21 @@
                 </div>
             </div>
         </nav>
-
-        
     </header>
 
     <div class="mx-auto " style="width: 85%; margin-top: 100px;">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for categorie, message in messages %}
+                    <div role="alert" class="alert {{ categorie }}">
+                        Information : <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         {% block content %}{% endblock %}
+
     </div>
 
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>

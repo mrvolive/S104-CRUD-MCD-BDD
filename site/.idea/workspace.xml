@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3be84679-d9df-430d-bb30-3a389b5d316e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/appartements/etat_appartement.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/appartements/add_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/add_appartement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartements/edit_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/edit_appartement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/appartements/show_appartement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/appartements/show_appartement.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,6 +125,8 @@
       <workItem from="1701439655666" duration="1092000" />
       <workItem from="1701441067551" duration="108000" />
       <workItem from="1701441187308" duration="196000" />
+      <workItem from="1701442911708" duration="3454000" />
+      <workItem from="1701696951210" duration="2706000" />
     </task>
     <servers />
   </component>

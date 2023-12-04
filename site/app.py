@@ -60,7 +60,7 @@ def delete_appartements():
     print(id)
     mycursor = get_db().cursor()
     tuple_param=(id)
-    query = "SELECT COUNT(*) AS occ FROM locataire WHERE num_appartement = %s" #
+    query = '''SELECT COUNT(*) AS occ FROM locataire WHERE num_appartement = %s'''
     mycursor.execute(query, tuple_param)
     count = mycursor.fetchone().get('occ')
     print(count)
@@ -69,7 +69,7 @@ def delete_appartements():
         print(message)
         flash(message, 'alert-warning')
     else:
-        sql="DELETE FROM appartement WHERE num_appartement=%s;"
+        sql='''DELETE FROM appartement WHERE num_appartement=%s;'''
         mycursor.execute(sql,tuple_param)
         get_db().commit()
     print(request.args)
@@ -112,7 +112,7 @@ def valid_edit_appartement():
     print(message)
     mycursor = get_db().cursor()
     tuple_param=(superficie,etage,type_appart,batiment,id)
-    sql="UPDATE appartement SET superficie_appartement = %s, etage_appartement= %s, id_type_appart= %s, num_batiment= %s WHERE num_appartement=%s;"
+    sql='''UPDATE appartement SET superficie_appartement = %s, etage_appartement= %s, id_type_appart= %s, num_batiment= %s WHERE num_appartement=%s;'''
     mycursor.execute(sql,tuple_param)
     get_db().commit()
     return redirect('/appartements/show')
@@ -150,10 +150,23 @@ def valid_add_appartement():
     print(message)
     mycursor = get_db().cursor()
     tuple_param = (superficie, etage, type_appart, batiment)
-    sql = "INSERT INTO appartement(num_appartement, superficie_appartement, etage_appartement, id_type_appart, num_batiment) VALUES (NULL, %s, %s, %s, %s);"
+    sql = '''INSERT INTO appartement(num_appartement, superficie_appartement, etage_appartement, id_type_appart, num_batiment) VALUES (NULL, %s, %s, %s, %s);'''
     mycursor.execute(sql, tuple_param)
     get_db().commit()
     return redirect('/appartements/show')
+
+@app.route('/appartements/etat')
+def show_etat_appartement():
+    mycursor = get_db().cursor()
+    sql = '''SELECT ROUND(AVG(superficie_appartement),2) AS superficie_moyenne FROM appartement;'''
+    mycursor.execute(sql)
+    moyenne_superficie = mycursor.fetchall()
+
+    sql = '''SELECT COUNT(num_appartement) AS nb_appart, ROUND(AVG(superficie_appartement),2) AS superficie_moyenne, num_batiment FROM appartement GROUP BY num_batiment;'''
+    mycursor.execute(sql)
+    nb_appart = mycursor.fetchall()
+
+    return render_template('appartements/etat_appartement.html', moyenne_superficie=moyenne_superficie, nb_appart=nb_appart)
 
 
 
