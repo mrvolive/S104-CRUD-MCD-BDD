@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block activeLoc %} active {% endblock %}
+{% block title %} Modifier un locataire {% endblock %}
+
+{% block content %}
+    <h2>Modifier un locataire</h2>
+    {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+    <form method="post" action="/locataires/edit">
+        <fieldset>
+            <input type="hidden" name="id" size="18" value="{{ locataire.id }}" id="id">
+
+            <label for="prenom">prénom</label><br>
+            <input required type="text" name="prenom" size="18" value="{{ locataire.prenom }}"><br>
+
+            <label for="nom">nom</label><br>
+            <input required type="text" name="nom" size="18" value="{{ locataire.nom }}" id="nom"><br>
+
+            <label for="tel">telephone</label><br>
+            <input required type="text" name="tel" size="18" value="{{ locataire.tel }}"><br>
+
+            <label for="age">age</label><br>
+            <input required type="number" name="age" size="18" value="{{ locataire.age }}"><br>
+
+            <label for="mail">mail</label><br>
+            <input required type="text" name="mail" size="18" value="{{ locataire.mail }}"><br>
+
+            <label for="appartement">Superficie de l'appartement</label><br>
+            <select name="appartement" required>
+                {% for type in appartement %}
+                    <option value="{{ type.appartement }}" {% if locataire.appartement is defined and type.appartement ==  locataire.appartement %}selected{% endif %}>
+                        {{ type.taille }} m²
+                    </option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+            <input type="submit" value="Modifier" name="Modifier">
+        </fieldset>
+    </form>
+{% endblock %}
