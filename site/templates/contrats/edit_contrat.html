@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block activeCont %} active {% endblock %}
+{% block title %} Modifier un contrat {% endblock %}
+
+{% block content %}
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form method="post" action="/contrats/edit">
+    <fieldset>
+        <legend> Modifier un contrat</legend>
+        <input type="hidden" name="id" size="18" value="{{ contrat.id }}" id="id">
+
+        <label for="montant">Loyer</label><br>
+        <input required type="text" name="montant" size="18" value="{{ contrat.montant }}"><br>
+
+        <label for="datesi">Date de signature du contrat</label><br>
+        <input required type="date" name="datesignature" size="18" value="{{ contrat.datesignature }}" id="date"><br>
+
+        <label for="datedeb">Date de début du contrat</label><br>
+        <input required type="date" name="datedebut" size="18" value="{{ contrat.datedebut }}"><br>
+
+        <label for="datefin">Date de fin du contrat</label><br>
+        <input required type="date" name="datefin" size="18" value="{{ contrat.datefin }}"><br>
+
+        <label for="nbloc">Nombre de locataire</label><br>
+        <input required type="text" name="nombrelocataire" size="18" value="{{ contrat.nombrelocataire }}"><br>
+
+        <label for="appartement">Numéro d'appartement</label><br>
+        <select name="appartement" id="appartement" required>
+            {% for nb in appart %}
+                <option value="{{ nb.appartement }}"{% if contrat.appartement is defined and nb.appartement==contrat.appartement %}selected{% endif %}> {{ nb.appartement }} </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Modifier" name="Modifier">
+    </fieldset>
+</form>
+{% endblock %}

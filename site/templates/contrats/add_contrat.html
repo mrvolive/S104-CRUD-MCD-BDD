@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block activeCont %} active {% endblock %}
+{% block title %} Ajouter un contrat {% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Ajouter un contrat</h1>
+        <form action="/contrats/add" method="post">
+            <fieldset>
+                <legend> Modifier un contrat</legend>
+                <input type="hidden" name="id" size="18" value="">
+
+                <label for="montant">montant loyer</label><br>
+                <input required type="text" name="montant" size="18" value=""><br>
+
+                <label for="datesignature">Date de signature du contrat</label><br>
+                <input required type="date" name="datesignature" size="18" value="" id="datesignature"><br>
+
+                <label for="datedebut">Date de debut du contrat</label><br>
+                <input required type="date" name="datedebut" size="18" value="" id="datedebut"><br>
+
+                <label for="datefin">Date de fin du contrat</label><br>
+                <input required type="date" name="datefin" size="18" value="" id="datefin"><br>
+
+                <label for="nombrelocataire">Nombre de locataire</label><br>
+                <input required type="text" name="nombrelocataire" size="18" value=""><br>
+
+                <label for="appartement">Numéro d'appartement</label><br>
+                <select name="appartement" id="appartement" required>
+                    {% for nb in appart %}
+                        <option value="{{nb.num_app}}"> {{ nb.num_app }} </option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="submit" value="Enregistrer" name="Enregistrer">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

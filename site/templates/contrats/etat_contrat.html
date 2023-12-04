@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block activeCont %} active {% endblock %}
+{% block title %} Contrats {% endblock %}
+
+{% block content %}
+<h3>Contrats</h3>
+<br /><br />
+
+
+<h4>Moyenne du loyer mensuel</h4>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Montant </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (loy_moyen|length) >= 1 %} {% for ligne in loy_moyen %}
+        <tr>
+
+            <td>{{ ligne.Loyer_Moyen }} €</td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas de contrat</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<h4> Record du contrat le plus long </h4>
+
+<b>{{long_contrat[0].prenom_locataire}} {{long_contrat[0].nom_locataire}}</b> a un contrat qui débute le <b>{{ long_contrat[0].date_debut_contrat}}</b> et qui dure jusqu'au  <b>{{ long_contrat[0].date_fin_contrat}}</b> soit, le contrat le plus long.
+    Il vivra dans l'appartement qui porte le numéro <b>{{ recup_num_app[0].num_appartement}}</b>
+</br> </br>
+
+
+
+{% endblock %}

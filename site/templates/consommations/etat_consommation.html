@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block activeCons %} active {% endblock %}
+{% block title %} Consommations {% endblock %}
+
+{% block content %}
+<h3>Consommations</h3>
+<br /><br />
+
+<h4> Record de consommation la plus basse </h4>
+
+<b>{{min_conso_elec[0].prenom_locataire}} {{min_conso_elec[0].nom_locataire}}</b> de l'appartement <b>{{ min_conso_elec[0].appartement }}</b> a la consommation d'éléctricité la plus faible jamais enregistré de  : <b>{{ min_conso_elec[0].conso_elec_mois_min }}</b> kWh
+</br> </br>
+
+<h4>Consommations d'eau mensuelle moyenne par appartement en 2023</h4>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Appartement</th>
+            <th>Consommation Moyenne Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (conso_moy_eau|length) >= 1 %} {% for ligne in conso_moy_eau %}
+        <tr>
+            <td>{{ ligne.appartement }}</td>
+            <td>{{ ligne.conso_moyenne_eau }} L</td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas de consommation</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<h4>Nombre de mois où la consommation électrique d'un appartement a excédé 300kWh en 2023</h4>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Appartement</th>
+            <th>Mois > 300kWH</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (over_conso_elec|length) >= 1 %} {% for ligne in over_conso_elec %}
+        <tr>
+            <td>{{ ligne.appartement }}</td>
+            <td>{{ ligne.over_elec }} mois </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas de consommation</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+
+{% endblock %}

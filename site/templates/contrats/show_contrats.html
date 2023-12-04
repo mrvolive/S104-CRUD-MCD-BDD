@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block activeCont %} active {% endblock %}
+{% block title %} Contrats {% endblock %}
+
+{% block content %}
+<h3>Contrats</h3>
+<a href="/contrats/add">Ajouter un contrat</a>
+<br /><br />
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>Loyer</th>
+            <th>Date Signature</th>
+            <th>Date Debut Du Contrat</th>
+            <th>Date Fin Du Contrat</th>
+            <th>Nombre de Locataire</th>
+            <th>Numéro d'Appartement</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if (contra|length) >= 1 %} {% for ligne in contra %}
+        <tr>
+            <td>{{ ligne.id }}</td>
+            <td>{{ ligne.montant }} € </td>
+            <td>{{ ligne.datesignature }}</td>
+            <td>{{ ligne.datedebut }}</td>
+            <td>{{ ligne.datefin }}</td>
+            <td>{{ ligne.nombrelocataire }}</td>
+            <td>{{ ligne.appartement }}</td>
+            <td>
+                <a href="/contrats/edit?id={{ ligne.id }}">Editer</a>&nbsp;
+                <a href="/contrats/delete?id={{ ligne.id }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %} {% else %}
+        <tr>
+            <td>Pas de contrat</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
