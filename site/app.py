@@ -485,6 +485,121 @@ LIMIT 1;'''
 
 # == Routes locataires == #
 
+@app.route("/locataires/show")
+def show_locataire():
+    mycursor = get_db().cursor()
+    sql ='''SELECT * FROM locataire ORDER BY id_locataire;'''
+    mycursor.execute(sql)
+    liste_locataire = mycursor.fetchall()
+    return render_template("locataires/show_locataire.html", locataire=liste_locataire)
+
+@app.route('/locataires/add', methods=['GET'])
+def add_locataire():
+    mycursor = get_db().cursor()
+    sql ='''SELECT * FROM appartement;'''
+    mycursor.execute(sql)
+    appartement = mycursor.fetchall()
+    return render_template('locataires/add_locataire.html', appartement=appartement)
+
+@app.route('/locataires/add', methods=['POST'])
+def valid_add_locataire():
+    print('''ajout d'un locataire dans le tableau''')
+    mycursor = get_db().cursor()
+
+    id = request.form.get('id', '')
+    prenom = request.form.get('prenom', '')
+    nom = request.form.get('nom', '')
+    tel = request.form.get('tel', '')
+    age = request.form.get('age', '')
+    mail = request.form.get('mail', '')
+    num_appartement = request.form.get('num_appartement', '')
+    tuple_insert=(prenom, nom, tel, age, mail, num_appartement)
+    sql="INSERT INTO locataire(id_locataire, prenom_locataire, nom_locataire, telephone_locataire, age_locataire, mail_locataire, num_appartement) VALUES ( NULL, %s, %s, %s, %s, %s, %s);"
+    mycursor.execute(sql,tuple_insert)
+    get_db().commit()
+    return redirect('/locataires/show')
+
+@app.route('/locataires/edit', methods=['GET'])
+def edit_locataire():
+    print('''affichage du formulaire pour modifier un locataire''')
+    id=request.args.get('id')
+    mycursor = get_db().cursor()
+    sql=''' SELECT id_locataire as id, prenom_locataire AS prenom, nom_locataire AS nom, telephone_locataire AS tel, age_locataire AS age, mail_locataire AS mail, num_appartement AS appartement
+    FROM locataire
+    WHERE id_locataire=%s;'''
+    tuple_param=(id)
+    mycursor.execute(sql, tuple_param)
+    locataire = mycursor.fetchone()
+    sql = ''' SELECT num_appartement AS appartement, superficie_appartement AS taille
+     FROM appartement ORDER BY num_appartement;'''
+    mycursor.execute(sql)
+    appartement = mycursor.fetchall()
+    return render_template('locataires/edit_locataire.html', locataire=locataire, appartement=appartement)
+
+
+@app.route('/locataires/edit', methods=['POST'])
+def valid_edit_locataire():
+    id = request.form.get('id')
+    prenom = request.form.get('prenom')
+    nom = request.form.get('nom')
+    tel = request.form.get('tel')
+    age = request.form.get('age')
+    mail = request.form.get('mail')
+    appartement = request.form.get('appartement')
+
+    mycursor = get_db().cursor()
+    tuple_update=(prenom, nom, tel, age, mail, appartement, id)
+    print(tuple_update)
+    sql="UPDATE locataire SET prenom_locataire=%s, nom_locataire=%s, telephone_locataire=%s, age_locataire=%s, mail_locataire=%s, num_appartement=%s WHERE id_locataire=%s;"
+    mycursor.execute(sql,tuple_update)
+    get_db().commit()
+    return redirect('/locataires/show')
+
+@app.route('/locataires/delete')
+def delete_locataire():
+    print('''suppression d'un locataire''')
+    id = request.args.get('id', 0)
+    print(id)
+    mycursor = get_db().cursor()
+    tuple_param = id
+    query = "SELECT COUNT(*) AS signe FROM signatures WHERE id_locataire = %s " #compter AS SIGN
+    mycursor.execute(query,tuple_param)
+    sign = mycursor.fetchone().get("signe")
+    print(sign)
+    if sign != 0:
+        message = u'Suppression impossible ! (car contrainte clé étrangère)'
+        print(message)
+        flash(message, 'warning-success')
+    else :
+        sql = "DELETE FROM locataire WHERE id_locataire=%s;"
+        mycursor.execute(sql, tuple_param)
+        get_db().commit()
+    print(request.args)
+    print(request.args.get('id'))
+    id = request.args.get('id', 0)
+    return redirect('/locataires/show')
+
+
+
+@app.route('/locataires/etat_locataire')
+def etat_age_locataires():
+    mycursor = get_db().cursor()
+
+    # Sélection des locataires avec l'âge
+    sql_locataires = '''SELECT id_locataire, prenom_locataire, nom_locataire, age_locataire
+                         FROM locataire;'''
+    mycursor.execute(sql_locataires)
+    locataires = mycursor.fetchall()
+
+    # Calcul de la moyenne d'âge
+    sql_moyenne_age = '''SELECT AVG(age_locataire) as moyenne_age
+                         FROM locataire;'''
+    mycursor.execute(sql_moyenne_age)
+    moyenne_age_result = mycursor.fetchone()
+    moyenne_age = moyenne_age_result['moyenne_age'] if moyenne_age_result else None
+
+    return render_template('locataires/etat_locataire.html', locataires=locataires, moyenne_age=moyenne_age)
+
 
 #########################
 # == Routes Exemples == #
