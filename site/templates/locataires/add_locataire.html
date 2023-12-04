@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block activeLoc %} active {% endblock %}
+{% block title %} Ajouter un locataire {% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Ajouter un locataire</h1>
+        <form action="/locataires/add" method="post">
+            <fieldset>
+                <input type="hidden" name="id" size="18" value="" id="id">
+
+                <label for="prenom_locataire" class="form-label">Prénom du locataire</label>
+                <input type="text" size="18" class="form-control" id="prenom" placeholder="Saisir le prénom du locataire" required value="" name="prenom">
+
+                <label for="nom_locataire" class="form-label">Nom du locataire</label>
+                <input type="text" size="18" class="form-control" id="nom" placeholder="Saisir le nom du locataire" required value="" name="nom">
+
+                <label for="telephone_locataire" class="form-label">téléphone locataire</label>
+                <input type="tel" size="18" class="form-control" id="telephone" placeholder="Saisir le numéro de téléphone du locataire" required value="" name="tel">
+
+                <label for="age_locataire" class="form-label">âge du locataire</label>
+                <input type="number" size="18" class="form-control" id="age" placeholder="Saisir l'age du locataire" required value="" name="age">
+
+                <label for="mail_locataire" class="form-label">Mail locataire</label>
+                <input type="text" size="18" class="form-control" id="mail" placeholder="Saisir le mail du locataire" required value="" name="mail">
+
+                <label for="num_appartement">superficie de l'appartement</label><br>
+                <select name="num_appartement" required>
+                    <option value="">Sélectionner la superficie de l'appartement</option>
+                    {% for type in appartement %}
+                        <option value="{{ type.num_appartement }}"> {{ type.superficie_appartement }} m² </option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="submit" value="Enregistrer" name="Enregistrer">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
