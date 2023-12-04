@@ -171,7 +171,7 @@ def show_etat_appartement():
 
 
 
-##############################    
+##############################
 # == Routes consommations == #
 ##############################
 
@@ -210,7 +210,7 @@ def edit_consommation():
     print('''affichage du formulaire pour modifier une consommation''')
     print(request.args)
     print(request.args.get('id'))
-    
+
     id=request.args.get('id')
     mycursor = get_db().cursor()
     sql = '''SELECT id_consomme AS id, date_conso AS date, quantite_consomme AS quantite, id_consommable AS idc, num_appartement AS appartement
@@ -219,12 +219,12 @@ def edit_consommation():
     tuple_param=(id)
     mycursor.execute(sql,tuple_param)
     consommation = mycursor.fetchone()
-    
+
     sql = '''SELECT id_consommable AS id, libelle_consommable AS type
     FROM consommable'''
     mycursor.execute(sql)
     consommable = mycursor.fetchall()
-    
+
     sql = '''SELECT num_appartement AS num_app
     FROM appartement'''
     mycursor.execute(sql)
@@ -257,12 +257,12 @@ def add_consommation():
     FROM consomme'''
     mycursor.execute(sql)
     consommation = mycursor.fetchall()
-    
+
     sql = '''SELECT id_consommable AS id, libelle_consommable AS type
     FROM consommable'''
     mycursor.execute(sql)
     consommable = mycursor.fetchall()
-    
+
     sql = '''SELECT num_appartement AS num_app
     FROM appartement'''
     mycursor.execute(sql)
@@ -296,7 +296,7 @@ def show_etat_consommation():
     ORDER BY date_conso DESC;'''
     mycursor.execute(sql)
     liste_consommations = mycursor.fetchall()
-    
+
     sql = '''SELECT ROUND(AVG(quantite_consomme),2) as conso_moyenne_eau, appartement.num_appartement as appartement
     FROM consomme
     INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
@@ -304,7 +304,7 @@ def show_etat_consommation():
     GROUP BY appartement.num_appartement;'''
     mycursor.execute(sql)
     conso_moy_eau = mycursor.fetchall()
-    
+
     sql = '''SELECT COUNT(appartement.num_appartement) as 'over_elec' , appartement.num_appartement as 'appartement'
     FROM consomme
     INNER JOIN appartement on consomme.num_appartement = appartement.num_appartement
@@ -312,7 +312,7 @@ def show_etat_consommation():
     GROUP BY appartement.num_appartement;'''
     mycursor.execute(sql)
     over_conso_elec = mycursor.fetchall()
-    
+
     sql = '''SELECT locataire.nom_locataire, locataire.prenom_locataire,appartement.num_appartement AS 'appartement',MIN(consomme.quantite_consomme) AS conso_elec_mois_min
     FROM appartement
     INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
@@ -321,7 +321,7 @@ def show_etat_consommation():
     GROUP BY locataire.nom_locataire, locataire.prenom_locataire;'''
     mycursor.execute(sql)
     min_conso_elec = mycursor.fetchall()
-    
+
     return render_template('consommations/etat_consommation.html', conso=liste_consommations, conso_moy_eau=conso_moy_eau, over_conso_elec=over_conso_elec, min_conso_elec=min_conso_elec)
 
 ## Etat programmé ##
@@ -329,7 +329,7 @@ def show_etat_consommation():
 @app.route("/consommations/etatprog", methods=['GET'])
 def show_filtre_dechet():
     return render_template('consommations/etatprog_consommation.html')
-    
+
 
 @app.route("/consommations/etatprog", methods=['POST'])
 def valid_filtre_dechet():
@@ -371,7 +371,7 @@ def delete_contrats():
     if sign != 0:
         message = u'Suppression impossible ! (car contrainte clé étrangère)'
         print(message)
-        flash(message, 'alert-success') #soucis
+        flash(message, 'warning-success')
     else :
         sql = "DELETE FROM contrat WHERE id_contrat=%s;"
         mycursor.execute(sql, tuple_param)
@@ -453,6 +453,34 @@ def valid_add_contrat():
     mycursor.execute(sql, tuple_param)
     get_db().commit()
     return redirect('/contrats/show')
+
+# == Etat contrat == #
+@app.route('/contrats/etat')
+def show_etat_contrat():
+    mycursor = get_db().cursor()
+    sql = '''SELECT ROUND(AVG(montant_loyer),2) as Loyer_Moyen  FROM contrat;'''
+    mycursor.execute(sql)
+    loy_moyen = mycursor.fetchall()
+    sql = '''SELECT appartement.num_appartement, contrat.id_contrat, contrat.montant_loyer, contrat.date_debut_contrat, contrat.date_fin_contrat
+FROM contrat
+JOIN appartement  ON contrat.num_appartement = appartement.num_appartement;
+'''
+    mycursor.execute(sql)
+    recup_num_app = mycursor.fetchall()
+    mycursor = get_db().cursor()
+    sql = '''SELECT locataire.nom_locataire, locataire.prenom_locataire, contrat.date_debut_contrat, contrat.date_fin_contrat
+FROM contrat
+         INNER JOIN signatures ON signatures.id_contrat = contrat.id_contrat
+         INNER JOIN locataire ON locataire.id_locataire = signatures.id_locataire
+ORDER BY DATEDIFF(contrat.date_fin_contrat, contrat.date_debut_contrat) DESC
+LIMIT 1;'''
+    mycursor.execute(sql)
+    long_contrat = mycursor.fetchall()
+    return render_template('contrats/etat_contrat.html', loy_moyen=loy_moyen,recup_num_app=recup_num_app, long_contrat= long_contrat)
+
+# Contrat qui englobe le plus de locataire
+# Le contrat qui dure le plus longtemps ? Si possible
+# Le loyer le plus bas
 
 
 # == Routes locataires == #
