@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block activeLoc %} active {% endblock %}
+{% block title %} Etats Locataires {% endblock %}
+
+{% block content %}
+    <h3>État de l'âge des locataires</h3>
+    <br> <br>
+
+    <p>L'âge moyens des locataires est de {{ moyenne_age }} ans.</p>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID Locataire</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Âge</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for locataire in locataires %}
+            <tr>
+                <td>{{ locataire.id_locataire }}</td>
+                <td>{{ locataire.prenom_locataire }}</td>
+                <td>{{ locataire.nom_locataire }}</td>
+                <td>{{ locataire.age_locataire }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
