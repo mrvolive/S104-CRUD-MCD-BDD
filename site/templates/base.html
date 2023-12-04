@@ -47,8 +47,12 @@
                                 </ul>
                             </li>
                             <!-- Déroulant Locataires Sugdenaz -->
-                            <li class="nav-item">
-                                <a class="nav-link mx-2 {% block activeLoc %}{% endblock %}" href="#!"><i class="fa fa-users pe-2"></i>Locataires (Sugdenaz E.)</a>
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link mx-2 dropdown-toggle {% block activeLoc %}{% endblock %}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-users pe-2"></i>Locataire (Sugdenaz E.)</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/locataires/show">Afficher les locataires (CRUD)</a></li>
+                                    <li><a class="dropdown-item" href="/locataires/etat_locataire">Etat : âge moyen des locataires</a></li>
+                                </ul>
                             </li>
                     </ul>
                 </div>
