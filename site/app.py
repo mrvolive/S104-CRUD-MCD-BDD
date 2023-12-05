@@ -318,7 +318,7 @@ def show_etat_consommation():
     INNER JOIN locataire on appartement.num_appartement = locataire.num_appartement
     INNER JOIN consomme on appartement.num_appartement = consomme.num_appartement
     WHERE consomme.quantite_consomme = (SELECT MIN(quantite_consomme) FROM consomme WHERE id_consommable = 2) AND consomme.id_consommable = 2
-    GROUP BY locataire.nom_locataire, locataire.prenom_locataire;'''
+    GROUP BY locataire.nom_locataire, locataire.prenom_locataire, appartement.num_appartement;'''
     mycursor.execute(sql)
     min_conso_elec = mycursor.fetchall()
 
